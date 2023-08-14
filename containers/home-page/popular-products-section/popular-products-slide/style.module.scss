@@ -1,0 +1,14 @@
+.popularProductsSlide{
+    
+    display: flex;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%!important;
+    position: relative!important;
+    &__slide{
+        display: flex!important;
+        width: max-content!important;
+    }
+}
