@@ -1,3 +1,5 @@
+import ArticlesSection from '@/containers/home-page/articles-section'
+import CtaSection from '@/containers/home-page/cta-section'
 import HeroSection from '@/containers/home-page/hero-section'
 import InfoSection from '@/containers/home-page/info-section'
 import PopularProducts from '@/containers/home-page/popular-products-section'
@@ -13,6 +15,8 @@ export default function Home() {
       <PopularProducts />
       <InfoSection />
       <TestimonialSection />
+      <ArticlesSection />
+      <CtaSection/>
     </main> 
   )
 }

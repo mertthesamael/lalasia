@@ -19,10 +19,19 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({  }) => {
     className={styles.testimonialSlide}
       spaceBetween={30}
       loop
-      loopedSlides={3}
+      loopedSlides={2}
       slidesPerView={'auto'}
       centeredSlides
   >
+    <SwiperSlide className={styles.testimonialSlide__slide}>
+        <TestimonialCard />
+    </SwiperSlide>
+    <SwiperSlide className={styles.testimonialSlide__slide}>
+        <TestimonialCard />
+    </SwiperSlide>
+    <SwiperSlide className={styles.testimonialSlide__slide}>
+        <TestimonialCard />
+    </SwiperSlide>
     <SwiperSlide className={styles.testimonialSlide__slide}>
         <TestimonialCard />
     </SwiperSlide>

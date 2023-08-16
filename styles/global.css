@@ -30,6 +30,7 @@ body{
     background:white;
     user-select: none;
 }
+
 *{
 
     -webkit-user-drag: none!important;

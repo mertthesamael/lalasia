@@ -8,8 +8,8 @@ interface InfoSectionProps {
 
 const InfoSection: FC<InfoSectionProps> = ({  }) => {
   return (
-    <section className='w-full flex flex-col items-center justify-center md:gap-14 '>
-        <div className='w-full max-w-screen-xl flex flex-col md:grid  grid-flow-col grid-cols-1 grid-rows-6  md:grid-cols-4 md:grid-rows-5  py-10 md:py-20 px-5  gap-8 md:gap-8 '>
+    <section className='w-full flex justify-center md:gap-14 '>
+        <div className='w-full max-w-screen-xl flex flex-col md:grid  grid-flow-col grid-cols-1 grid-rows-6  md:grid-cols-4 md:grid-rows-5  gap-8 md:gap-8  mx-5 md:mx-20 f :items-center justify-between py-20'>
             <div className='flex flex-col md:gap-12 gap-8 md:row-span-2 md:row-start-1 md:row-end-4 md:col-start-1 md:col-end-3'>
                 <div className='flex flex-col md:gap-4 gap-2'>
                 <h1 className='text-secondaryColor md:text-lg font-bold text-sm'>Our Product</h1>
