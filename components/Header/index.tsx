@@ -5,6 +5,7 @@ import { Basket } from '../Icons/Basket';
 import { Profile } from '../Icons/Profile';
 import { HamburgerIcon } from '../Icons/HamburgerIcon';
 import { HeaderNavs } from './constants';
+import Brand from '../Brand';
 
 interface HeaderProps {
   
@@ -14,9 +15,8 @@ const Header: FC<HeaderProps> = ({  }) => {
   return (
     <header className='w-full flex justify-center py-4 md:py-8 border-b-2 border-[#F3F3F3] abs'>
         <div className='w-full max-w-screen-xl mx-5 md:mx-20 flex items-center justify-between'>
-            <div className='flex gap-3 items-center w-40'>
-                <Logo />
-                <h1 className='text-black text-2xl font-bold'>Lalasia</h1>
+            <div>
+                <Brand />
             </div>
             <nav className=' gap-14 hidden md:flex'>
                 {HeaderNavs.map((el,_i)=> <Link key={_i} href={el.href} className='text-black font-medium'>{el.value}</Link>)}

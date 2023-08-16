@@ -12,7 +12,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ horizontal }) => {
         return(
             <div className='flex gap-7 bg-white md:w-max w-full'>
                 <div className='w-max h-max'>
-                    <Image src={'/article.png'} width={260} height={260} className='md:w-[260px] md:h-[260px] h-[110px] w-[110px]' alt='Article Cover'/>
+                    <Image src={'/article.png'} width={260} height={260} className='md:w-[260px] md:h-[260px] h-[110px] w-[110px] transition-all ease-in-out hover:scale-110 ' alt='Article Cover'/>
                 </div>
                 <div className='w-[203px] md:w-[329px] flex flex-col gap-2 md:gap-5 justify-center'>
                     <div>
@@ -40,8 +40,8 @@ const ArticleCard: FC<ArticleCardProps> = ({ horizontal }) => {
   return (
     <div className='w-full  h-[200px] md:h-[565px] relative '>
         <div className='relative w-full h-full'>
-        <Image src={'/article.png'} fill style={{objectFit:'cover'}} alt='Article IMG'/>
-        <div className='linear-gradient(180deg, rgba(21, 20, 17, 0.00) 17.62%, #151411 84.84%) bg-gradient-to-t from-[#15141175] to-[transparent] absolute w-full h-full '/>
+        <Image src={'/article.png'} fill style={{objectFit:'cover'}} alt='Article IMG' />
+        <div className='linear-gradient(180deg, rgba(21, 20, 17, 0.00) 17.62%, #151411 84.84%) bg-gradient-to-t from-[#15141175] to-[transparent] absolute w-full h-full'/>
       <div className='max-w-[530px] flex flex-col gap-3 h-full w-full relative  justify-end p-6'>
         <div>
             <h2 className=' text-xs md:text-lg'>Tips and Trick</h2>
