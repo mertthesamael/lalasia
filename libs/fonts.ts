@@ -23,5 +23,5 @@ export const eudox = localFont({
         weight: '600'
       },
     ],
-    variable: '--söhne'
+    variable: '--eudox'
 })
