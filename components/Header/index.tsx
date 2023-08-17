@@ -15,9 +15,9 @@ const Header: FC<HeaderProps> = ({  }) => {
   return (
     <header className='w-full flex justify-center py-4 md:py-8 border-b-2 border-[#F3F3F3] abs'>
         <div className='w-full max-w-screen-xl mx-5 md:mx-20 flex items-center justify-between'>
-            <div>
+            <Link href={'/'}>
                 <Brand />
-            </div>
+            </Link>
             <nav className=' gap-14 hidden md:flex'>
                 {HeaderNavs.map((el,_i)=> <Link key={_i} href={el.href} className='text-black font-medium'>{el.value}</Link>)}
             </nav>

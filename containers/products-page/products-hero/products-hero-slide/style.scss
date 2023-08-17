@@ -1,0 +1,14 @@
+.products-hero-slide{
+    width: 100%!important;
+    height: max-content;
+
+
+    & .swiper-pagination-bullet{
+        background-color: #FFF!important;
+        opacity: 0.4!important;
+    }
+    & .swiper-pagination-bullet-active{
+        background-color: #FFF!important;
+        opacity: 1!important;
+    }
+}
