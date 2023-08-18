@@ -10,17 +10,17 @@ export const HeaderNavs : HeaderNav [] = [
     {
         id:2,
         value:'Services',
-        href:'/'
+        href:'/services'
     },
     {
         id:3,
         value:'Article',
-        href:'/'
+        href:'/article'
     },
     {
         id:4,
         value:'About Us',
-        href:'/'
+        href:'/about'
     },
 
 ]
