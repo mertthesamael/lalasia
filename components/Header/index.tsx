@@ -19,14 +19,14 @@ const Header: FC<HeaderProps> = ({  }) => {
             <Link href={'/'}>
                 <Brand />
             </Link>
-            <nav className=' gap-14 hidden md:flex'>
+            <nav className=' gap-14 hidden lg:flex'>
                 {HeaderNavs.map((el,_i)=> <HeaderNav key={_i} value={el.value} id={el.id} href={el.href}/>)}
             </nav>
-            <div className='gap-6 w-40 justify-end hidden md:flex'> 
+            <div className='gap-6 w-40 justify-end hidden lg:flex'> 
                 <Basket />
                 <Profile />
             </div>
-            <div className='flex md:hidden'>
+            <div className='flex lg:hidden'>
                 <HamburgerIcon />
             </div>
         </div>

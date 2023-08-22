@@ -14,7 +14,7 @@ export async function generateMetadata(
     const id = params.id
    
     // fetch data
-    const product = new Promise<string>((resolve) => {
+   /* const product = new Promise<string>((resolve) => {
         return setTimeout(() => {
             resolve('Test')
             
@@ -22,11 +22,12 @@ export async function generateMetadata(
     })
    
     // optionally access and extend (rather than replace) parent metadata
-    const previousImages = (await parent)?.openGraph?.images || []
+    const previousImages = (await parent).openGraph?.images || []*/
     return {
-      title: await product,
+      //title: await product,
+      title:id,
       openGraph: {
-        images: ['/some-specific-page-image.jpg', ...previousImages],
+       // images: ['/some-specific-page-image.jpg', ...previousImages],
       },
     }
   }
