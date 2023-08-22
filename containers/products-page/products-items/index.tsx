@@ -1,4 +1,3 @@
-"use client"
 import PageButton from '@/components/Buttons/PageButton';
 import ProductCard from '@/components/Cards/ProductCard';
 import { SlideArrow } from '@/components/Icons/SlideArrow';
@@ -13,7 +12,7 @@ interface PromiseItemsProps {
 const PromiseItems: FC<PromiseItemsProps> = ({ }) => {
   return (
     <section className='w-full flex justify-center'>
-      <div className='flex flex-col justify-between  gap-2 md:gap-5 w-full max-w-screen-xl mx-5 md:mx-20  px-5 md:px-0'>
+      <div className='flex flex-col justify-between  gap-2 md:gap-5 w-full max-w-screen-xl mx-5 md:mx-20   md:px-0'>
         <div className='w-full flex justify-start lg:justify-between'>
             <div className='flex md:gap-6'>
             <h2 className='text-2xl md:text-4xl text-black font-bold'>Total Product</h2>

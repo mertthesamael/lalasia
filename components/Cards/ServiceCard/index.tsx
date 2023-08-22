@@ -4,17 +4,22 @@ interface ServiceCardProps {
   id:number,
   title:string,
   content:string,
-  icon:JSX.Element
+  icon?:JSX.Element
+  numeric?:boolean
 
 }
 
-const ServiceCard: FC<ServiceCardProps> = ({ title, content, icon }) => {
+const ServiceCard: FC<ServiceCardProps> = ({ title, content, icon, numeric, id }) => {
   return (
     <div className='p-6 w-full md:w-max flex items-center md:items-start flex-col md:gap-6 gap-3 shadow-md'>
      <div>
+        {icon?
         <div className='md:w-16 md:h-16 h-11 w-11 rounded-full bg-[#F9F9F9] flex items-center justify-center'>
             {icon}
         </div>
+        :
+        <span className='text-4xl md:text-6xl text-primaryColor font-bold'>{String(id).padStart(2, '0')}</span>
+      }
      </div>
      <div>
         <h3 className='text-black md:text-2xl text-base font-bold'>{title}</h3>
