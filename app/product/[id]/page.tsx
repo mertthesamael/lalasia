@@ -6,15 +6,15 @@ interface ProductProps {
     params: { id: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }
-export async function generateMetadata(
-    { params, searchParams }: ProductProps,
+/*export async function generateMetadata(
+  { params, searchParams }: ProductProps,
     parent?: ResolvingMetadata
   ): Promise<Metadata> {
     // read route params
     const id = params.id
    
     // fetch data
-   /* const product = new Promise<string>((resolve) => {
+   const product = new Promise<string>((resolve) => {
         return setTimeout(() => {
             resolve('Test')
             
@@ -22,7 +22,7 @@ export async function generateMetadata(
     })
    
     // optionally access and extend (rather than replace) parent metadata
-    const previousImages = (await parent).openGraph?.images || []*/
+    const previousImages = (await parent).openGraph?.images || []
     return {
       //title: await product,
       title:id,
@@ -30,7 +30,7 @@ export async function generateMetadata(
        // images: ['/some-specific-page-image.jpg', ...previousImages],
       },
     }
-  }
+  }*/
 const Product: FC<ProductProps> = ({  }) => {
   return (
     <main>
