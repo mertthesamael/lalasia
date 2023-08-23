@@ -13,7 +13,7 @@ const ResponsiveCard: FC<ResponsiveCardProps> = ({  }) => {
         <div className='relative p-7 flex flex-col gap-4'>
             <div className='flex flex-col'>
                 <div>
-                    <h2 className='font-bold text-base md:text-2xl'>Siska Kohl's Bedroom</h2>
+                    <h2 className='font-bold text-base md:text-2xl'>Siska Kohl&apos;s Bedroom</h2>
                     <p className='text-white opacity-[0.7] text-ellipsis text-sm md:text-lg'>We start renovating her bedroom with minimalist concept and using combination white and wooden material</p>
                 </div>
             </div>

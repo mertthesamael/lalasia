@@ -13,7 +13,7 @@ const ServicesPortfolio: FC<ServicesPortfolioProps> = ({}) => {
               Portofolio
             </h1>
             <h2 className="text-black md:text-5xl font-bold text-2xl">
-              Amazing project we've
+              Amazing project we&apos;ve
               <br />
               done before
             </h2>
