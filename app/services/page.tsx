@@ -1,7 +1,7 @@
-import ServicesCards from '@/containers/services-page/services-cards';
-import ServicesCta from '@/containers/services-page/services-cta';
-import ServicesHero from '@/containers/services-page/services-hero';
-import ServicesPortfolio from '@/containers/services-page/services-portfolio';
+import ServicesCards from '@/containers/services-page/cards-section';
+import ServicesCta from '@/containers/services-page/cta-section';
+import ServicesHero from '@/containers/services-page/hero-section';
+import ServicesPortfolio from '@/containers/services-page/portfolio-section';
 import React, { FC } from 'react'
 
 interface ServicesProps {

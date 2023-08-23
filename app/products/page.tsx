@@ -1,6 +1,6 @@
 import ProductsHero from '@/containers/products-page/products-hero';
-import PromiseItems from '@/containers/products-page/products-items';
-import ProductsSearch from '@/containers/products-page/products-search';
+import PromiseItems from '@/containers/products-page/items-section';
+import ProductsSearch from '@/containers/products-page/search-section';
 import React, { FC } from 'react'
 
 interface ProductsProps {

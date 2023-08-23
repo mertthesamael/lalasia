@@ -15,7 +15,7 @@ export const HeaderNavs : HeaderNav [] = [
     {
         id:3,
         value:'Article',
-        href:'/article'
+        href:'/articles'
     },
     {
         id:4,
