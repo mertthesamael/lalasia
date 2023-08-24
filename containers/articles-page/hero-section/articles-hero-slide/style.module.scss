@@ -1,0 +1,17 @@
+.articleHeroSlide{
+    display: flex;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%!important;
+    position: relative!important;   
+    overflow-y: visible!important;
+
+    &__slide{
+        width: 100%!important;
+        position: relative!important;
+        overflow: visible!important;
+
+    }
+}

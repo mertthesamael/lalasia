@@ -18,7 +18,7 @@ const AboutHeroSection: FC<AboutHeroSectionProps> = ({  }) => {
           to see our old products please enter the name of the item
           </p>
         </div>
-      <div className='w-full h-[550px] bg-red-400'>
+      <div className='w-full h-[200px] md:h-[550px] bg-black'>
         <AboutHeroPlayer />
       </div>
       </div>

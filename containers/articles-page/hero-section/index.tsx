@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import ArticlesHeroSlide from "./articles-hero-slide";
 
 interface ArticlesHeroSectionProps {}
 
@@ -14,6 +15,9 @@ const ArticlesHeroSection: FC<ArticlesHeroSectionProps> = ({}) => {
             We display products based on the latest products we have, if you
             want to see our old products please enter the name of the item
           </p>
+        </div>
+        <div className="w-full h-[720px]">
+          <ArticlesHeroSlide/>
         </div>
       </div>
     </section>
