@@ -3,18 +3,19 @@ import React, { FC } from 'react'
 
 interface ArticleCardProps {
   horizontal?:boolean
+  responsive?:boolean
 }
 
-const ArticleCard: FC<ArticleCardProps> = ({ horizontal }) => {
+const ArticleCard: FC<ArticleCardProps> = ({ horizontal,responsive }) => {
 
 
     if(horizontal){
         return(
-            <div className='flex gap-7 bg-white md:w-max w-full'>
+            <div className='flex gap-7 bg-white w-full'>
                 <div className='w-max h-max'>
-                    <Image src={'/article.png'} width={260} height={260} className='md:w-[260px] md:h-[260px] h-[110px] w-[110px] transition-all ease-in-out hover:scale-110 ' alt='Article Cover'/>
+                    <Image src={'/article.png'} width={260} height={260} className='md:min-w-[260px] md:min-h-[260px] !h-[110px] !w-[110px] transition-all ease-in-out hover:scale-110 ' alt='Article Cover'/>
                 </div>
-                <div className='w-[203px] md:w-[329px] flex flex-col gap-2 md:gap-5 justify-center'>
+                <div className='w-[203px] md:w-[329px] flex flex-col gap-2 md:gap-5 justify-center' style={responsive?{width:'100%',height:'100%'}:{}}>
                     <div>
                         <h2 className='text-textColor text-xs md:text-lg'>Tips and Trick</h2>
                     </div>
@@ -24,7 +25,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ horizontal }) => {
                     <div className='hidden md:flex'>
                         <p className='text-textColor text-lg'>Pellentesque etiam blandit in tincidunt at donec. Eget ipsum .</p>
                     </div>
-                    <div className='flex w-full justify-between items-center'>
+                    <div className='flex w-max  gap-6 items-center'>
                         <div className='flex items-center gap-[10px]'>
                             <Image src={'/author.png'} width={28} height={28} className='w-[18px] h-[18px] md:w-[28px] md:h-[28px]' style={{borderRadius:'50%'}} alt='Author IMG'/>
                             <h3 className='font-bold text-xs md:text-sm text-black'>By Jerremy Jean</h3>
