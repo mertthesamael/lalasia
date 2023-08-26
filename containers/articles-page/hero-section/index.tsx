@@ -16,7 +16,7 @@ const ArticlesHeroSection: FC<ArticlesHeroSectionProps> = ({}) => {
             want to see our old products please enter the name of the item
           </p>
         </div>
-        <div className="w-full h-[720px]">
+        <div className="w-full h-[300px] md:h-[500px] xl:h-[720px]">
           <ArticlesHeroSlide/>
         </div>
       </div>

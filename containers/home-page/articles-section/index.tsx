@@ -1,6 +1,7 @@
 import ArticleCard from "@/components/Cards/ArticleCard";
 import React, { FC } from "react";
 import ArticlesSlide from "./articles-slide";
+import { mockArticles } from "./constants";
 
 interface ArticlesSectionProps {}
 
@@ -29,9 +30,8 @@ const ArticlesSection: FC<ArticlesSectionProps> = ({}) => {
           </div>
         </div>
         <div className="flex flex-col  items-end gap-8 h-max xl:w-full">
-            <ArticleCard horizontal/>
-            <ArticleCard horizontal/>
-            <ArticleCard horizontal/>
+          {mockArticles.map((el, _i) => <ArticleCard key={_i} horizontal id={el.id} imgUrl={el.imgUrl} author={el.author} date={el.date} content={el.content} title={el.title} category={el.category}/>)}
+
         </div>
       </div>
     </section>

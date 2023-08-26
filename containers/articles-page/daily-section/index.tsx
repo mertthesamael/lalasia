@@ -1,5 +1,6 @@
 import ArticleCard from "@/components/Cards/ArticleCard";
 import React, { FC } from "react";
+import { mockDailyArticles } from "./constants";
 
 interface ArticlesDailySectionProps {}
 
@@ -15,9 +16,11 @@ const ArticlesDailySection: FC<ArticlesDailySectionProps> = ({}) => {
             Today top headlines
           </h2>
         </div>
-        <div className="w-full flex">
-            <ArticleCard horizontal responsive></ArticleCard>
+        <div className="w-full flex flex-col xl:flex-row justify-between gap-4">
+          {mockDailyArticles.map((el, _i) => <ArticleCard key={_i} secondary id={el.id} content={el.content} title={el.title} category={el.category} author={el.author} imgUrl={el.imgUrl} date={el.date}/>)}
+         
         </div>
+        
       </div>
     </section>
   );
