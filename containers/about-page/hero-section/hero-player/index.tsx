@@ -48,7 +48,7 @@ const AboutHeroPlayer: FC<AboutHeroPlayerProps> = ({}) => {
     >
       {isLoaded && (
         <ReactPlayer
-          playing={isPlaying}
+          playing={false}
           onStart={() => setIsPlaying(true)}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}

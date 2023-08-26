@@ -82,13 +82,13 @@ const ArticleCard: FC<ArticleCardProps> = ({
   }
   if (horizontal) {
     return (
-      <div className="flex gap-7 bg-white w-full">
+      <div className="flex gap-3 md:gap-7 bg-white w-full">
         <div className="w-max h-max">
           <Image
             src={imgUrl}
             width={260}
             height={260}
-            className="md:min-w-[260px] md:min-h-[260px] !min-h-[110px] !min-w-[110px] transition-all ease-in-out hover:scale-110 "
+            className="md:!min-w-[260px]  md:!min-h-[260px]  !min-h-[110px] h-[110px] !min-w-[110px] w-[110px] transition-all ease-in-out hover:scale-110 "
             alt="Article Cover"
           />
         </div>

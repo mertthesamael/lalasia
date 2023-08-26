@@ -1,4 +1,7 @@
 import { Article } from "@/types/Article";
+import { ArticleFilter } from "@/types/Filters";
+
+export const articleFilters : ArticleFilter[] = ['All', 'Color Guide', 'Design Inspiration', 'Interior Design', 'Tips and Trick']
 
 export const trendingArticles : Article[] = [
     {
