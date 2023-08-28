@@ -44,7 +44,7 @@ const ItemSection: FC<ItemSectionProps> = ({  }) => {
           </div>
           <div className='flex flex-col lg:flex-row gap-2 lg:gap-5'>  
             <PrimaryButton text='Buy Now' className='w-full border-2 border-transparent font-semibold flex items-center justify-center lg:w-max'/>
-            <PrimaryButton text='Add to Cart' className='w-full bg-white text-black font-semibold border-2 flex items-center justify-center lg:w-max'/>
+            <PrimaryButton text='Add to Cart' className='w-full bg-white !text-black font-semibold border-2 flex items-center justify-center lg:w-max'/>
           </div>
         </div>
       </div>
