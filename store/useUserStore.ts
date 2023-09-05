@@ -1,12 +1,13 @@
+import { TUser } from '@/types/User'
 import { create } from 'zustand'
 
 type UserStore = {
-  count: number
-  inc: () => void
+  user:TUser
+  handleUser: (user:TUser) => void
 }
 
 export const useUserStore = create<UserStore>()((set) => ({
-  count: 1,
-  inc: () => set((state) => ({ count: state.count + 1 })),
+  user: null,
+  handleUser: (newUser) => set((state) => ({ user: newUser })),
 }))
 
