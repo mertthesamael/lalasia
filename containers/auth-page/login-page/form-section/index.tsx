@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react'
 
-interface AuthFormSectionProps {
+interface LoginFormSectionProps {
   
 }
 
-const AuthFormSection: FC<AuthFormSectionProps> = ({  }) => {
+const LoginFormSection: FC<LoginFormSectionProps> = ({  }) => {
   return (
     <section className='w-full flex justify-center'>
         <div className='flex flex-col  py-10 md:py-28 items-center justify-center gap-8 md:gap-24 w-full max-w-screen-xl mx-5 md:mx-20'>
@@ -20,7 +20,7 @@ const AuthFormSection: FC<AuthFormSectionProps> = ({  }) => {
                     <Brand />
                     <LoginForm />
                     <div className='flex'>
-                        <p className='text-textColor '>Dont have an account? <Link className='text-primaryColor font-medium' href={'/signup'}>Sign up</Link> now!</p>
+                        <p className='text-textColor '>Dont have an account? <Link className='text-primaryColor font-medium' href={'/auth/signup'}>Sign up</Link> now!</p>
                     </div>
                 </div>
             </div>
@@ -29,4 +29,4 @@ const AuthFormSection: FC<AuthFormSectionProps> = ({  }) => {
   )
 }
 
-export default AuthFormSection;
+export default LoginFormSection;

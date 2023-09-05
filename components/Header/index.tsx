@@ -24,7 +24,9 @@ const Header: FC<HeaderProps> = ({  }) => {
             </nav>
             <div className='gap-6 w-40 justify-end hidden lg:flex'> 
                 <Basket />
-                <Profile />
+                <Link href={'/auth/login'}>
+                    <Profile />
+                </Link>
             </div>
             <div className='flex lg:hidden'>
                 <HamburgerIcon />

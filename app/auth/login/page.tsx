@@ -1,4 +1,5 @@
-import AuthFormSection from '@/containers/auth-page/form-section';
+import LoginFormSection from '@/containers/auth-page/login-page/form-section';
+import AuthFormSection from '@/containers/auth-page/login-page/form-section';
 import React, { FC } from 'react'
 
 interface LoginPageProps {
@@ -8,7 +9,7 @@ interface LoginPageProps {
 const LoginPage: FC<LoginPageProps> = ({  }) => {
   return (
     <main>
-        <AuthFormSection />
+        <LoginFormSection />
     </main>
   )
 }
