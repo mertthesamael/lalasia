@@ -1,12 +1,12 @@
 "use server";
 
+import { prisma } from "@/db/client";
 import { TUser } from "@/types/User";
 import { PrismaClient } from "@prisma/client";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import axios from "axios";
 import { cookies } from "next/headers";
 
-const prisma = new PrismaClient();
 
 export const loginHandler = async (formData: FormData) => {
   const email = String(formData.get("email"));
@@ -40,7 +40,7 @@ export const loginHandler = async (formData: FormData) => {
 };
 
 export const signupHandler = async (formData: FormData) => {
-  const requestUrl = new URL("http://localhost:3000/products");
+  const requestUrl = new URL("http://localhost:3000/callback");
   const email = String(formData.get("email"));
   const password = String(formData.get("password"));
   const supabase = createRouteHandlerClient({ cookies });
