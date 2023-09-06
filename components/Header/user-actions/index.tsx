@@ -1,17 +1,36 @@
 "use client";
+import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import { Basket } from "@/components/Icons/Basket";
 import { Profile } from "@/components/Icons/Profile";
 import { useUserStore } from "@/store/useUserStore";
 import { TUser } from "@/types/User";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
-import React, { FC, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import React, { FC, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 interface HeaderUserActionsProps {
   targetUser: TUser;
 }
 
 const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const router = useRouter()
+  const supabase = createClientComponentClient()
+
   const { user, handleUser } = useUserStore();
+  const handleSignOut = async () => {
+    try{
+        await supabase.auth.signOut()
+        handleUser(null)
+        toast.success('Successfully signed out!')
+        router.push('/')
+    }catch(err){
+        toast.error('Something went wrong x(')
+        console.log(err)
+    }
+  }
   const getUser = () => {
     if (!user) {
       handleUser(targetUser);
@@ -20,12 +39,60 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
   useEffect(() => {
     getUser();
   }, [targetUser]);
+
+  const handleClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    console.log(target);
+    if (target.id !== "profileIcon") {
+      return setIsProfileOpen(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
   return (
     <div className="gap-6 w-40 justify-end hidden lg:flex">
-      <Basket />
-      <Link href={"/auth/login"}>
-        <Profile />
-      </Link>
+      <div>
+        <Basket />
+      </div>
+      <div className="flex flex-col relative">
+        <div
+          onClick={() => setIsProfileOpen((prev) => !prev)}
+          className="cursor-pointer"
+        >
+          <Profile />
+        </div>
+        <div
+          className={`bg-white flex flex-col w-max h-max max-h-0 overflow-hidden absolute top-[4.5rem] transition-all ${
+            isProfileOpen ? "!max-h-[10rem] " : "!max-h-0"
+          }`}
+        >
+          {user ? (
+            <div className="flex flex-col gap-2 ">
+              <h1 className="text-black text-xl font-medium border-b border-primaryColor">
+                {user.displayName}
+              </h1>
+              <PrimaryButton onClick={handleSignOut} text="Sign Out" className="!bg-secondaryColor !w-max !h-max !py-2"/>
+            </div>
+          ) : (
+            <>
+              <Link
+                href={"/auth/signup"}
+                className="text-black border rounded-sm p-2"
+              >
+                Signup
+              </Link>
+              <Link
+                href={"/auth/login"}
+                className="text-black border rounded-sm p-2"
+              >
+                Login
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
