@@ -28,7 +28,7 @@ const LoginForm: FC<LoginFormProps> = ({}) => {
     const data = await loginHandler(formData);
     //BURAYA BAKCAM ??
     if(data){
-
+      console.log(data)
       if (data.error) {
         return toast.error(data.error) 
       }
@@ -42,7 +42,7 @@ const LoginForm: FC<LoginFormProps> = ({}) => {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `https://lalasia-gray.vercel.app/auth/callback`,
+          redirectTo: `${getURL()}auth/callback`,
           queryParams: {
             access_type: 'offline',
             prompt: 'consent',
