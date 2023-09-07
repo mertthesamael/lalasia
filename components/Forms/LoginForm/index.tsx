@@ -22,7 +22,7 @@ const getURL = () => {
 };
 const LoginForm: FC<LoginFormProps> = ({}) => {
   const router = useRouter();
-
+  console.log(process.env)
   const { handleUser, user } = useUserStore();
   const clientAction = async (formData: FormData) => {
     const data = await loginHandler(formData);
