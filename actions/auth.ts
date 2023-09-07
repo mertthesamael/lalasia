@@ -2,11 +2,21 @@
 
 import { prisma } from "@/db/client";
 import { TUser } from "@/types/User";
-import { PrismaClient } from "@prisma/client";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
-import axios from "axios";
 import { cookies } from "next/headers";
 
+const getURL = () => {
+  let url =
+    process?.env?.NEXT_PUBLIC_SITE_URL ?? // Set this to your site URL in production env.
+    process?.env?.NEXT_PUBLIC_VERCEL_URL ?? // Automatically set by Vercel.
+    'http://localhost:3000/';
+
+  // Make sure to include https:// when not localhost.
+  url = url.includes('http') ? url : `https://${url}`;
+  // Make sure to including trailing /.
+  url = url.charAt(url.length - 1) === '/' ? url : `${url}/`;
+  return url;
+};
 
 export const loginHandler = async (formData: FormData) => {
   const email = String(formData.get("email"));
@@ -40,7 +50,6 @@ export const loginHandler = async (formData: FormData) => {
 };
 
 export const signupHandler = async (formData: FormData) => {
-  const requestUrl = new URL("http://localhost:3000/callback");
   const email = String(formData.get("email"));
   const password = String(formData.get("password"));
   const supabase = createRouteHandlerClient({ cookies });
@@ -50,7 +59,7 @@ export const signupHandler = async (formData: FormData) => {
       email,
       password,
       options: {
-        emailRedirectTo: `${requestUrl}`,
+        emailRedirectTo: `${getURL()}auth/callback`,
       },
     });
     if (data?.user) {
@@ -66,6 +75,7 @@ export const signupHandler = async (formData: FormData) => {
       error: error,
     };
   } catch (err) {
+    console.log(err, '2313213123')
   } finally {
     prisma.$disconnect();
   }

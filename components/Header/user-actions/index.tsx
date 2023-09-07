@@ -2,6 +2,7 @@
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import { Basket } from "@/components/Icons/Basket";
 import { Profile } from "@/components/Icons/Profile";
+import { handleSignOut } from "@/db/auth";
 import { useUserStore } from "@/store/useUserStore";
 import { TUser } from "@/types/User";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -18,31 +19,28 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const router = useRouter()
   const supabase = createClientComponentClient()
-
   const { user, handleUser } = useUserStore();
-  const handleSignOut = async () => {
-    try{
-        await supabase.auth.signOut()
-        handleUser(null)
-        toast.success('Successfully signed out!')
-        router.push('/')
-    }catch(err){
-        toast.error('Something went wrong x(')
-        console.log(err)
+  const signOut = async () => {
+    let res = await handleSignOut()
+    if(res){
+      handleUser(null)
+      toast.success('Successfully signed out!')
+      router.push('/')
     }
   }
-  const getUser = () => {
-    if (!user) {
-      handleUser(targetUser);
-    }
-  };
-  useEffect(() => {
+  const getUser = async() => {
+
+      if (!user) {
+          handleUser(targetUser);
+        }
+    };
+    useEffect(() => {
+      console.log(targetUser)
     getUser();
   }, [targetUser]);
 
   const handleClick = (e: MouseEvent) => {
     const target = e.target as HTMLElement;
-    console.log(target);
     if (target.id !== "profileIcon") {
       return setIsProfileOpen(false);
     }
@@ -73,7 +71,7 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
               <h1 className="text-black text-xl font-medium border-b border-primaryColor">
                 {user.displayName}
               </h1>
-              <PrimaryButton onClick={handleSignOut} text="Sign Out" className="!bg-secondaryColor !w-max !h-max !py-2"/>
+              <PrimaryButton onClick={signOut} text="Sign Out" className="!bg-secondaryColor !w-max !h-max !py-2"/>
             </div>
           ) : (
             <>

@@ -3,16 +3,18 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import React, { FC } from "react";
 import { signupHandler } from "@/actions/auth";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface SignupFormProps {}
 const SignupForm: FC<SignupFormProps> = ({}) => {
-
+  const router = useRouter()
   const clientAction = async(formData:FormData) => {
     const data = await signupHandler(formData)
-    console.log(data)
+    
     if(data?.error){
       toast.error(data.error.message)
     }
+    data?.data.user&&router.push('/auth/login')
 }
   return (
     <form

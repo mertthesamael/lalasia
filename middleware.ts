@@ -7,7 +7,7 @@ export async function middleware(req: NextRequest) {
   const res = NextResponse.next()
   const supabase = createMiddlewareClient({ req, res })
   let session = await supabase.auth.getSession()
- 
+  console.log(session,'middleware')
   if(session.data.session?.user){
   
     return NextResponse.redirect(new URL('/', req.url))
@@ -16,5 +16,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher:['/auth/login', '/auth/signup'],
+  matcher:['/auth/login','/auth/signup'],
 }
