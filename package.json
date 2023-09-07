@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-deploy":"prisma generate && next build"
   },
   "dependencies": {
     "@next/font": "^13.4.13",
