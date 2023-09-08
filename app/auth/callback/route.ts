@@ -14,10 +14,12 @@ export async function GET(request: NextRequest) {
   if (code) {
     const supabase = createRouteHandlerClient ({ cookies })
     const {data} = await supabase.auth.exchangeCodeForSession(code)
+    console.log(data.session?.user, 'USER DATA IS HEREEEEEEE!!!!!!')
+    data.session?.user.user_metadata.full_name
     try{
       await prisma.user.create({
         data: {
-          displayName: "Merto",
+          displayName: data.session?.user.user_metadata.full_name ?? 'Merto',
           email: String(data.session?.user.email),
         },
       });
