@@ -9,7 +9,6 @@ interface ProductProps {
 }
 export async function generateMetadata(
   { params, searchParams }: ProductProps,
-    parent?: ResolvingMetadata
   ): Promise<Metadata> {
     // read route params
     const id = params.id
