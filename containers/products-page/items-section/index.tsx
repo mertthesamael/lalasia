@@ -3,13 +3,15 @@ import ProductCard from '@/components/Cards/ProductCard';
 import { SlideArrow } from '@/components/Icons/SlideArrow';
 import { Sort } from '@/components/Icons/Sort';
 import Pagination from '@/components/Pagination';
+import { TProduct } from '@/types/Product';
 import React, { FC, useState } from 'react'
 
 interface PromiseItemsProps {
+  products:TProduct[]
 }
 
 
-const PromiseItems: FC<PromiseItemsProps> = ({ }) => {
+const PromiseItems: FC<PromiseItemsProps> = ({ products }) => {
   return (
     <section className='w-full flex justify-center'>
       <div className='flex flex-col justify-between  gap-2 md:gap-5 w-full max-w-screen-xl mx-5 md:mx-20   md:px-0'>
@@ -24,7 +26,7 @@ const PromiseItems: FC<PromiseItemsProps> = ({ }) => {
           </div>
         </div>
         <div id='items' className='w-full flex flex-wrap gap-[30px] justify-between'>
-          {Array(9).fill(0).map((el,_i) => <ProductCard key={_i}/>)}
+          {products.map((el,_i) => <ProductCard key={_i} item={el}/>)}
         </div>
         <div className='w-full flex justify-center'>
         <Pagination itemPerView={9} totalItems={50} currentPage={1} />

@@ -1,10 +1,13 @@
 import ProductCard from "@/components/Cards/ProductCard";
 import React, { FC } from "react";
 import PopularProductsSlide from "./popular-products-slide";
+import { TProduct } from "@/types/Product";
 
-interface PopularProductsProps {}
+interface PopularProductsProps {
+  products: TProduct[]
+}
 
-const PopularProducts: FC<PopularProductsProps> = ({}) => {
+const PopularProducts: FC<PopularProductsProps> = ({products}) => {
   return (
     <section className="w-full flex flex-col items-center justify-center md:gap-14">
       <div className="w-full max-w-screen-xl flex flex-col py-10 md:py-20 items-center mx-5 md:mx-20 gap-4 md:gap-8 text-center">
@@ -22,7 +25,7 @@ const PopularProducts: FC<PopularProductsProps> = ({}) => {
         </p>
       </div>
       <div className="w-full py-6">
-        <PopularProductsSlide />
+        <PopularProductsSlide items={products}/>
       </div>
     </section>
   );

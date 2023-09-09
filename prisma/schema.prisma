@@ -1,6 +1,7 @@
 datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 generator client {
@@ -17,12 +18,48 @@ generator client {
 // }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
+  id          Int    @id @default(autoincrement())
+  email       String @unique
   displayName String
- 
-}
-model Product{
-  id    Int     @id @default(autoincrement())
+  basket      Json[]
+  Order Order[]
 }
 
+model Product {
+  id          Int     @id @default(autoincrement())
+  imgUrl      String
+  name        String
+  title       String  
+  category    Category
+  description String
+  price       Float
+  color       Color
+  colors      Color[]
+  Order       Order[]
+}
+
+model Order {
+  id        Int     @id @default(autoincrement())
+  product   Product @relation(fields: [productId], references: [id])
+  user      User    @relation(fields: [userId], references: [id])
+  color     Color
+  productId Int
+  userId    Int
+}
+enum Category {
+  Chair
+  Cupboard
+  Table
+  Decoration
+  Lamp
+  Sofa
+}
+enum Color {
+  Black
+  Green
+  Brown
+  White
+  Blue
+  Orange
+
+}

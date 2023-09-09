@@ -8,10 +8,13 @@ import "swiper/css/navigation";
 import React, { FC, useRef } from "react";
 import ProductCard from "@/components/Cards/ProductCard";
 import { SlideArrow } from "@/components/Icons/SlideArrow";
+import { TProduct } from "@/types/Product";
 
-interface PopularProductsSlideProps {}
+interface PopularProductsSlideProps {
+  items:TProduct[]
+}
 
-const PopularProductsSlide: FC<PopularProductsSlideProps> = ({}) => {
+const PopularProductsSlide: FC<PopularProductsSlideProps> = ({items}) => {
   const swiperRef = useRef<any>(null);
   return (
     <Swiper
@@ -23,33 +26,17 @@ const PopularProductsSlide: FC<PopularProductsSlideProps> = ({}) => {
       centeredSlides
       onSwiper={(swiper) => (swiperRef.current = swiper)}
     >
-      <SwiperSlide className={styles.popularProductsSlide__slide}>
-        <ProductCard />
+      {items.map((el,_i) => (
+      <SwiperSlide key={_i} className={styles.popularProductsSlide__slide}>
+        <ProductCard item={el}/>
       </SwiperSlide>
-      <SwiperSlide className={styles.popularProductsSlide__slide}>
-        <ProductCard />
+      ))}
+      {items.map((el,_i) => (
+      <SwiperSlide key={_i} className={styles.popularProductsSlide__slide}>
+        <ProductCard item={el}/>
       </SwiperSlide>
-      <SwiperSlide className={styles.popularProductsSlide__slide}>
-        <ProductCard />
-      </SwiperSlide>
-      <SwiperSlide className={styles.popularProductsSlide__slide}>
-        <ProductCard />
-      </SwiperSlide>
-      <SwiperSlide className={styles.popularProductsSlide__slide}>
-        <ProductCard />
-      </SwiperSlide>
-      <SwiperSlide className={styles.popularProductsSlide__slide}>
-        <ProductCard />
-      </SwiperSlide>
-      <SwiperSlide className={styles.popularProductsSlide__slide}>
-        <ProductCard />
-      </SwiperSlide>
-      <SwiperSlide className={styles.popularProductsSlide__slide}>
-        <ProductCard />
-      </SwiperSlide>
-      <SwiperSlide className={styles.popularProductsSlide__slide}>
-        <ProductCard />
-      </SwiperSlide>
+      ))}
+
       <button
         onClick={() => swiperRef.current.slideNext()}
         className="text-black  absolute bottom-[50%] top-[50%] z-10 left-12 w-[52px] h-[52px] rounded-full bg-[#15141199] backdrop-blur items-center justify-center hidden md:flex"
