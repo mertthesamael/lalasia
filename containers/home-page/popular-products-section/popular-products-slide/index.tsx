@@ -26,12 +26,12 @@ const PopularProductsSlide: FC<PopularProductsSlideProps> = ({items}) => {
       centeredSlides
       onSwiper={(swiper) => (swiperRef.current = swiper)}
     >
-      {items.map((el,_i) => (
+      {items?.map((el,_i) => (
       <SwiperSlide key={_i} className={styles.popularProductsSlide__slide}>
         <ProductCard item={el}/>
       </SwiperSlide>
       ))}
-      {items.map((el,_i) => (
+      {items?.map((el,_i) => (
       <SwiperSlide key={_i} className={styles.popularProductsSlide__slide}>
         <ProductCard item={el}/>
       </SwiperSlide>

@@ -19,7 +19,7 @@ export default async function Home() {
     <main>
       <HeroSection />
       <ServicesSection />
-      <PopularProducts products={items.data} />
+      <PopularProducts products={items?.data} />
       <InfoSection />
       <TestimonialSection />
       <ArticlesSection />
