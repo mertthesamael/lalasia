@@ -9,7 +9,7 @@ import { getAll } from '@/libs/endpoints'
 import axios from 'axios'
 
 const getItems = async() => {
-  const data = await axios(getAll)
+  const data = await axios(process.env.NEXT_PUBLIC_SITE_URL ?? process?.env?.NEXT_PUBLIC_VERCEL_URL ?? 'http://localhost:3000/'+'api/products/getAll')
   return data.data
 }
 
