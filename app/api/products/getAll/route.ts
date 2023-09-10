@@ -8,7 +8,6 @@ export const dynamic = 'force-dynamic'
 export async function GET(request: NextRequest) {
     
     try{
-        createRouteHandlerClient({cookies})
         const products = await prisma.product.findMany()
         console.log(products)
         return NextResponse.json({data:products})
