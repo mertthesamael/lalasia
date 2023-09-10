@@ -5,6 +5,5 @@ import { cookies } from "next/headers";
 
 
 export const prisma = new PrismaClient()
-
 export default () => 
 createServerComponentClient({cookies})

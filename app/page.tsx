@@ -15,7 +15,7 @@ const getItems = async() => {
 
 export default async function Home() {
   const items = await getItems()
-  console.log(items)
+  
   return (
     <main>
       <HeroSection />

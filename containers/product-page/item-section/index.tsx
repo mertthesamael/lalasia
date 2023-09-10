@@ -2,26 +2,15 @@ import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import { TProduct } from '@/types/Product';
 import Image from 'next/image';
 import React, { FC } from 'react'
+import { colors } from './constants';
+
 
 interface ItemSectionProps {
   item:TProduct
 }
 
 const ItemSection: FC<ItemSectionProps> = ({ item }) => {
-  const colors = [
-    {
-      id:1,
-      value:'#151411'
-    },
-    {
-      id:2,
-      value:'#314443'
-    },
-    {
-      id:3,
-      value:'#C5A26E'
-    },
-  ]
+
   return (
     <section className='w-full flex justify-center'>
       <div className='flex flex-col lg:flex-row items-center justify-between  gap-2 md:gap-5 w-full max-w-screen-xl mx-5 md:mx-20   py-10 md:pt-28'>
@@ -36,7 +25,7 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
           <div className='flex flex-col gap-5'>
             <h3 className='text-black text-sm md:text-lg font-semibold'>Color</h3>
             <div className='flex'>
-              {colors.map((el,_i) => <div key={_i} style={{background:el.value}} className={`h-[50px] w-[50px]`}/>)}
+              {item.colors.map((el,_i) => <div key={_i} style={{background:colors[el]}} className={`h-[50px] w-[50px]`}/>)}
             </div>
             <p className='text-textColor text-sm xl:text-lg '>{item.description}</p>
           </div>

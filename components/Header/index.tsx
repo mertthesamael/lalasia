@@ -35,7 +35,6 @@ const checkUser = async () => {
   }
 };
   const targetUser = await checkUser();
-  console.log(targetUser, 'current user')
   return (
     <header className="w-full flex justify-center py-4 md:py-8 border-b-2 border-[#F3F3F3] relative">
       <div className="w-full max-w-screen-xl mx-5 md:mx-20 flex items-center justify-between">

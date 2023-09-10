@@ -1,4 +1,6 @@
 import { prisma } from '@/db/client'
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 
 import type { NextRequest } from 'next/server'
@@ -6,8 +8,8 @@ import type { NextRequest } from 'next/server'
 
 export async function POST(request: NextRequest) {
     const {id} = await request.json()
-    console.log(id,'TARGET ID')
     try{
+        createRouteHandlerClient({cookies})
 
         const product = await prisma.product.findUnique({
             where: {
@@ -15,7 +17,7 @@ export async function POST(request: NextRequest) {
             }
           })
           console.log(product, 'TARGET PRODUCT')
-        // URL to redirect to after sign in process completes
+      
         return NextResponse.json({data:product})
     }catch(err){
         return NextResponse.error()

@@ -22,7 +22,7 @@ export default async function RootLayout({
   const supabase = createClient()
 
   const {data:{user}} = await supabase.auth.getUser()
-  console.log(user)
+ 
   return (
     <html lang="en">
       <body className={eudox.className}>

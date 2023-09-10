@@ -6,6 +6,7 @@ import { handleSignOut } from "@/db/auth";
 import { useUserStore } from "@/store/useUserStore";
 import { TUser } from "@/types/User";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { FC, useEffect, useState } from "react";
@@ -45,6 +46,7 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
       return setIsProfileOpen(false);
     }
   };
+
   useEffect(() => {
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
