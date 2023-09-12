@@ -1,4 +1,5 @@
 import { TUser } from '@/types/User'
+import { JsonValue } from '@prisma/client/runtime/library'
 import { create } from 'zustand'
 
 type UserStore = {

@@ -1,16 +1,26 @@
+"use client"
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import { TProduct } from '@/types/Product';
 import Image from 'next/image';
 import React, { FC } from 'react'
 import { colors } from './constants';
-
+import axios from 'axios';
+import { postBasket } from '@/libs/endpoints';
+import { useUserStore } from '@/store/useUserStore';
+import cryptoRandomString from 'crypto-random-string';
 
 interface ItemSectionProps {
   item:TProduct
 }
 
 const ItemSection: FC<ItemSectionProps> = ({ item }) => {
-
+  const {user,handleUser} = useUserStore()
+  const addBasket = async() => {
+    const {data} = await axios.post(postBasket,{action:'add',user:user,payload:{item:item,id:cryptoRandomString({length:15})}})
+    if(data){
+      return handleUser(data.result)
+    }
+  }
   return (
     <section className='w-full flex justify-center'>
       <div className='flex flex-col lg:flex-row items-center justify-between  gap-2 md:gap-5 w-full max-w-screen-xl mx-5 md:mx-20   py-10 md:pt-28'>
@@ -34,7 +44,7 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
           </div>
           <div className='flex flex-col lg:flex-row gap-2 lg:gap-5'>  
             <PrimaryButton text='Buy Now' className='w-full border-2 border-transparent font-semibold flex items-center justify-center lg:w-max'/>
-            <PrimaryButton text='Add to Cart' className='w-full bg-white !text-black font-semibold border-2 flex items-center justify-center lg:w-max'/>
+            <PrimaryButton onClick={addBasket} text='Add to Cart' className='w-full bg-white !text-black font-semibold border-2 flex items-center justify-center lg:w-max'/>
           </div>
         </div>
       </div>

@@ -5,7 +5,6 @@ import PageButton from '../Buttons/PageButton';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 interface PaginationProps {
-  currentPage:number,
   itemPerView:number,
   totalItems:number
 }
@@ -15,7 +14,7 @@ const Pagination: FC<PaginationProps> = ({ itemPerView, totalItems }) => {
     const router = useRouter()
     const pathname = usePathname()
     const searchParams : any = useSearchParams()
-   
+    console.log(totalItems)
     // Get a new searchParams string by merging the current
     // searchParams with a provided key/value pair
     const createQueryString = useCallback(

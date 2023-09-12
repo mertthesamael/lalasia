@@ -10,18 +10,20 @@ import PromiseItems from '@/containers/products-page/items-section';
 interface ProductsProps {
   searchParams: { [key: string]: string | string[] | undefined }
 }
-const getItems = async() => {
-    const data = await axios(getAll)
+const getItems = async(page:number,perItem:number) => {
+    const data = await axios.post(getAll,{page:page,perItems:perItem})
     return data.data
 }
 const Products: FC<ProductsProps> = async({ searchParams }) => {
+
   const page = typeof searchParams.page === 'string' ? Number(searchParams.page) : 1
-  const items = await getItems()
+  const itemPerView = 3;
+  const items = await getItems(page,itemPerView)
   return (
     <main>
         <ProductsHero />
         <ProductsSearch />
-        <PromiseItems products={items.data}/>
+        <PromiseItems itemsPerView={itemPerView} products={items.data} size={items.size}/>
     </main>
   )
 }

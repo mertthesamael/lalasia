@@ -1,8 +1,10 @@
 "use client";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
+import BasketDropdown from "@/components/DropDowns/Basket";
 import { Basket } from "@/components/Icons/Basket";
 import { Profile } from "@/components/Icons/Profile";
 import { handleSignOut } from "@/db/auth";
+import { postBasket } from "@/libs/endpoints";
 import { useUserStore } from "@/store/useUserStore";
 import { TUser } from "@/types/User";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -29,6 +31,7 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
       router.push('/')
     }
   }
+
   const getUser = async() => {
 
       if (!user) {
@@ -53,8 +56,12 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
   }, []);
   return (
     <div className="gap-6 w-40 justify-end hidden lg:flex">
-      <div>
+      <div className="flex relative flex-col">
+        <div className="flex">
         <Basket />
+        <h1 className="text-secondaryColor font-bold">{user?.basket.length}</h1>
+        </div>
+        {user&&<BasketDropdown isOpen items={user.basket}/>}
       </div>
       <div className="flex flex-col relative">
         <div

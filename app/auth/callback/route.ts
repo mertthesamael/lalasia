@@ -20,6 +20,7 @@ export async function GET(request: NextRequest) {
         data: {
           displayName: data.session?.user.user_metadata.full_name ?? 'Merto',
           email: String(data.session?.user.email),
+          totalPrice:0
         },
       });
     }catch(err){

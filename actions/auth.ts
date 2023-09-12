@@ -67,6 +67,7 @@ export const signupHandler = async (formData: FormData) => {
         data: {
           displayName: "Merto",
           email: String(email),
+          totalPrice:0
         },
       });
     }

@@ -15,8 +15,9 @@ export async function POST(request: NextRequest) {
             }
           })
           console.log(product, 'TARGET PRODUCT')
-      
-        return NextResponse.json({data:product})
+     
+            return NextResponse.json({data:product})
+        
     }catch(err){
         return NextResponse.error()
     }finally{
