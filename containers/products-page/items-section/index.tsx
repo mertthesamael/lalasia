@@ -10,8 +10,16 @@ interface PromiseItemsProps {
   itemsPerView:number
 }
 
-
-const PromiseItems: FC<PromiseItemsProps> = ({ products,size,itemsPerView }) => {
+const loader = async() => {
+  const test = await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Promise resolved after 2 seconds");
+    }, 2000); // 2000 milliseconds = 2 seconds
+  });
+  return test
+}
+const PromiseItems: FC<PromiseItemsProps> = async({ products,size,itemsPerView }) => {
+  const data = await loader()
   return (
     <section className='w-full flex justify-center'>
       <div className='flex flex-col justify-between  gap-2 md:gap-5 w-full max-w-screen-xl mx-5 md:mx-20   md:px-0'>
