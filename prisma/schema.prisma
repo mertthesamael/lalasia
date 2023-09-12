@@ -38,16 +38,14 @@ model Product {
   price       Float
   color       Color
   colors      Color[]
-  Order       Order[]
 }
 
 model Order {
   id        Int     @id @default(autoincrement())
-  product   Product @relation(fields: [productId], references: [id])
+  products Json[]
   user      User    @relation(fields: [userId], references: [id])
-  color     Color
-  productId Int
   userId    Int
+  price Float
 }
 
 enum Category {

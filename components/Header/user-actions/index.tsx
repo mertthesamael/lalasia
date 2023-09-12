@@ -1,6 +1,5 @@
 "use client";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
-import BasketDropdown from "@/components/DropDowns/Basket";
 import { Basket } from "@/components/Icons/Basket";
 import { Profile } from "@/components/Icons/Profile";
 import { handleSignOut } from "@/db/auth";
@@ -57,11 +56,12 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
   return (
     <div className="gap-6 w-40 justify-end hidden lg:flex">
       <div className="flex relative flex-col">
+          <Link href={'/checkout'}>
         <div className="flex">
         <Basket />
         <h1 className="text-secondaryColor font-bold">{user?.basket.length}</h1>
         </div>
-        {user&&<BasketDropdown isOpen items={user.basket}/>}
+          </Link>
       </div>
       <div className="flex flex-col relative">
         <div

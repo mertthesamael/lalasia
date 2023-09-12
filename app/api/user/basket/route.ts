@@ -59,6 +59,22 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({data:'added',result:result})
         }
         return NextResponse.json({data:'removed'})
-  }
+  }else if(action==='wipe'){
+
+    if(user){
+
+        const result = await prisma.user.update({
+            where:{
+                email:user.email
+            },
+            data:{
+                totalPrice:0,
+                basket:[]
+            }
+        })
+        return NextResponse.json({data:'added',result:result})
+    }
+    return NextResponse.json({data:'removed'})
+}
  
 }
