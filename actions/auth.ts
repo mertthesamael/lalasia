@@ -78,6 +78,9 @@ export const signupHandler = async (formData: FormData) => {
     };
   } catch (err) {
     console.log(err, "2313213123");
+    return {
+      fail:true
+    };
   } finally {
     prisma.$disconnect();
   }

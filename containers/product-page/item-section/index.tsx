@@ -44,6 +44,7 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
         },
       });
       if (data) {
+        toast.success(item.name+'Successfully added to your basket!')
         return handleUser(data.result);
       } else {
         return toast.error("Something Went Wrong");

@@ -10,12 +10,17 @@ const SignupForm: FC<SignupFormProps> = ({}) => {
   const router = useRouter();
   const clientAction = async (formData: FormData) => {
     const data = await signupHandler(formData);
+    console.log(data,'annnnennn')
 
-    if (data?.error) {
-      toast.error(data.error.message);
+    if (data?.error||data.fail) {
+      data.error&&toast.error(data.error.message);
+      data.fail&&toast.error('Something went wrong.');
     }
-    data?.data.user && router.push("/auth/login");
-  };
+    else if(data?.data?.user){
+      toast.success('Your account is created, please check your email.')
+      router.push("/auth/login");
+    };
+    }
   return (
     <form
       action={clientAction}

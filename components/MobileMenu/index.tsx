@@ -53,7 +53,7 @@ const MobileMenu: FC<MobileMenuProps> = ({}) => {
               <>
                 <li>
                   <Link
-                    href={"/chcekout"}
+                    href={"/checkout"}
                     className="text-black text-lg font-bold flex gap-4"
                   >
                     Basket{" "}
