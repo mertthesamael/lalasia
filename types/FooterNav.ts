@@ -1,10 +1,7 @@
-import { HeaderNav } from "./HeaderNav"
-
+import { HeaderNav } from "./HeaderNav";
 
 export type FooterNav = {
-    id:number,
-    category:string,
-    navs: HeaderNav[],
-    
-
-}
+  id: number;
+  category: string;
+  navs: HeaderNav[];
+};

@@ -8,13 +8,13 @@ interface ArticleCardProps {
   responsive?: boolean;
   secondary?: boolean;
 
-  id:number,
-  category:string,
-  imgUrl:string
-  title:string,
-  content:string,
-  author:AuthorType
-  date:Date
+  id: number;
+  category: string;
+  imgUrl: string;
+  title: string;
+  content: string;
+  author: AuthorType;
+  date: Date;
 }
 
 const ArticleCard: FC<ArticleCardProps> = ({
@@ -27,7 +27,7 @@ const ArticleCard: FC<ArticleCardProps> = ({
   author,
   date,
   category,
-  imgUrl
+  imgUrl,
 }) => {
   if (secondary) {
     return (
@@ -107,9 +107,7 @@ const ArticleCard: FC<ArticleCardProps> = ({
             </h1>
           </div>
           <div className="hidden md:flex">
-            <p className="text-textColor md:text-xs lg:text-lg">
-              {content}
-            </p>
+            <p className="text-textColor md:text-xs lg:text-lg">{content}</p>
           </div>
           <div className="flex w-max  gap-6 items-center">
             <div className="flex items-center gap-[10px]">
@@ -150,13 +148,11 @@ const ArticleCard: FC<ArticleCardProps> = ({
             <h2 className=" text-xs md:text-lg">{category}</h2>
           </div>
           <div>
-            <h1 className="font-bold text-base md:text-2xl">
-              {title}
-            </h1>
+            <h1 className="font-bold text-base md:text-2xl">{title}</h1>
           </div>
           <div>
             <p className="text-white text-ellipsis text-lg truncate">
-             {content}
+              {content}
             </p>
           </div>
           <div>

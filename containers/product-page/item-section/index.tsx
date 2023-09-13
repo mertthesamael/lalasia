@@ -2,7 +2,7 @@
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import { TProduct } from "@/types/Product";
 import Image from "next/image";
-import React, { FC, useCallback } from "react";
+import React, { FC } from "react";
 import { colors } from "./constants";
 import axios from "axios";
 import { postBasket } from "@/libs/endpoints";
@@ -27,9 +27,8 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
     ? searchParams.get("color")
     : item.color;
 
-  const createQueryString = useCreateQueryString()
+  const createQueryString = useCreateQueryString();
 
-  
   const addBasket = async () => {
     const isValidColor = item.colors.filter(
       (color) => color === selectedColor
@@ -102,15 +101,13 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
             </span>
           </div>
           <div className="flex flex-col lg:flex-row gap-2 lg:gap-5">
-            <PrimaryButton
-              text="Buy Now"
-              className="w-full border-2 border-transparent font-semibold flex items-center justify-center lg:w-max"
-            />
-            <PrimaryButton
-              onClick={addBasket}
-              text="Add to Cart"
-              className="w-full bg-white !text-black font-semibold border-2 flex items-center justify-center lg:w-max"
-            />
+            <form action={addBasket}>
+              <PrimaryButton
+                type="submit"
+                text="Add to Cart"
+                className="w-full font-semibold flex items-center justify-center"
+              />
+            </form>
           </div>
         </div>
       </div>

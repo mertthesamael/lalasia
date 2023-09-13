@@ -1,49 +1,41 @@
-"use client"
-import styles from './style.module.scss'
-import React, { FC } from 'react'
+"use client";
+import styles from "./style.module.scss";
+import React, { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import TestimonialCard from '@/components/Cards/TestimonialCard';
+import TestimonialCard from "@/components/Cards/TestimonialCard";
 
+interface TestimonialSlideProps {}
 
-interface TestimonialSlideProps {
-  
-}
-
-const TestimonialSlide: FC<TestimonialSlideProps> = ({  }) => {
-
+const TestimonialSlide: FC<TestimonialSlideProps> = ({}) => {
   return (
     <Swiper
-    className={styles.testimonialSlide}
+      className={styles.testimonialSlide}
       spaceBetween={30}
       loop
       loopedSlides={2}
-      slidesPerView={'auto'}
+      slidesPerView={"auto"}
       centeredSlides
-  >
-    <SwiperSlide className={styles.testimonialSlide__slide}>
+    >
+      <SwiperSlide className={styles.testimonialSlide__slide}>
         <TestimonialCard />
-    </SwiperSlide>
-    <SwiperSlide className={styles.testimonialSlide__slide}>
+      </SwiperSlide>
+      <SwiperSlide className={styles.testimonialSlide__slide}>
         <TestimonialCard />
-    </SwiperSlide>
-    <SwiperSlide className={styles.testimonialSlide__slide}>
+      </SwiperSlide>
+      <SwiperSlide className={styles.testimonialSlide__slide}>
         <TestimonialCard />
-    </SwiperSlide>
-    <SwiperSlide className={styles.testimonialSlide__slide}>
+      </SwiperSlide>
+      <SwiperSlide className={styles.testimonialSlide__slide}>
         <TestimonialCard />
-    </SwiperSlide>
-    <SwiperSlide className={styles.testimonialSlide__slide}>
+      </SwiperSlide>
+      <SwiperSlide className={styles.testimonialSlide__slide}>
         <TestimonialCard />
-    </SwiperSlide>
-   
-    
-    
-    
-  </Swiper>
-  )
-}
+      </SwiperSlide>
+    </Swiper>
+  );
+};
 
 export default TestimonialSlide;

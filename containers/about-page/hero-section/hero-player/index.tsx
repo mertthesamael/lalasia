@@ -11,7 +11,7 @@ const AboutHeroPlayer: FC<AboutHeroPlayerProps> = ({}) => {
   const [duration, setDuration] = useState<number>(0);
   const [currentPos, setCurrentPos] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true)
+  const [isMuted, setIsMuted] = useState(true);
   const [isControllersActive, setIsControllersActive] = useState(true);
 
   const player = useRef<ReactPlayer>(null);
@@ -38,7 +38,6 @@ const AboutHeroPlayer: FC<AboutHeroPlayerProps> = ({}) => {
   //Manually checking that if it's loaded for avoiding hydration issues
   useEffect(() => {
     setIsLoaded(true);
-
   }, []);
   return (
     <div
@@ -67,7 +66,7 @@ const AboutHeroPlayer: FC<AboutHeroPlayerProps> = ({}) => {
         className="absolute w-full h-max py-[30px] px-[50px] flex flex-col gap-5 bottom-0 transition-all "
         style={!isControllersActive ? { bottom: "-32rem" } : { bottom: "0" }}
       >
-        { (
+        {
           <>
             <div className="relative" onClick={seekHandler}>
               <div className="w-full relative bg-gray-400 h-1  cursor-pointer" />
@@ -91,7 +90,7 @@ const AboutHeroPlayer: FC<AboutHeroPlayerProps> = ({}) => {
               <span>{playerTimeFormatter(duration)}</span>
             </div>
           </>
-        )}
+        }
       </div>
     </div>
   );

@@ -1,16 +1,14 @@
-import CheckoutFormSection from '@/containers/checkout-page/form-section';
-import React, { FC } from 'react'
+import CheckoutFormSection from "@/containers/checkout-page/form-section";
+import React, { FC } from "react";
 
-interface CheckoutProps {
-  
-}
+interface CheckoutProps {}
 
-const Checkout: FC<CheckoutProps> = ({  }) => {
+const Checkout: FC<CheckoutProps> = ({}) => {
   return (
-    <main className='flex gap-6 justify-center'>
-        <CheckoutFormSection />
+    <main className="flex gap-6 justify-center">
+      <CheckoutFormSection />
     </main>
-  )
-}
+  );
+};
 
 export default Checkout;

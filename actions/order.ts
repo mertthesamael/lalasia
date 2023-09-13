@@ -3,7 +3,6 @@
 import { prisma } from "@/db/client";
 import { TUser } from "@/types/User";
 
-
 export const orderHandler = async (user: TUser) => {
   if (user && user.basket) {
     try {

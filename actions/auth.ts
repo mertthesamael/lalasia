@@ -9,12 +9,12 @@ const getURL = () => {
   let url =
     process?.env?.NEXT_PUBLIC_SITE_URL ?? // Set this to your site URL in production env.
     process?.env?.NEXT_PUBLIC_VERCEL_URL ?? // Automatically set by Vercel.
-    'http://localhost:3000/';
+    "http://localhost:3000/";
 
   // Make sure to include https:// when not localhost.
-  url = url.includes('http') ? url : `https://${url}`;
+  url = url.includes("http") ? url : `https://${url}`;
   // Make sure to including trailing /.
-  url = url.charAt(url.length - 1) === '/' ? url : `${url}/`;
+  url = url.charAt(url.length - 1) === "/" ? url : `${url}/`;
   return url;
 };
 
@@ -22,7 +22,7 @@ export const loginHandler = async (formData: FormData) => {
   const email = String(formData.get("email"));
   const password = String(formData.get("password"));
   const supabase = createRouteHandlerClient({ cookies });
-  let user : TUser = null;
+  let user: TUser = null;
   try {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -68,7 +68,7 @@ export const signupHandler = async (formData: FormData) => {
         data: {
           displayName: String(name),
           email: String(email),
-          totalPrice:0
+          totalPrice: 0,
         },
       });
     }
@@ -77,7 +77,7 @@ export const signupHandler = async (formData: FormData) => {
       error: error,
     };
   } catch (err) {
-    console.log(err, '2313213123')
+    console.log(err, "2313213123");
   } finally {
     prisma.$disconnect();
   }

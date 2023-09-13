@@ -4,36 +4,34 @@ import { HamburgerIcon } from "../Icons/HamburgerIcon";
 import { HeaderNavs } from "./constants";
 import Brand from "../Brand";
 import HeaderNav from "../Navs/HeaderNav";
-import {
-  User,
-} from "@supabase/auth-helpers-nextjs";
+import { User } from "@supabase/auth-helpers-nextjs";
 import HeaderUserActions from "./user-actions";
 import { prisma } from "@/db/client";
+import HamburgerButton from "../Buttons/HamburgerButton";
 
 interface HeaderProps {
   user: User | null;
 }
 
 const Header: FC<HeaderProps> = async ({ user }) => {
-  
-const checkUser = async () => {
-  let targetUser = null;
+  const checkUser = async () => {
+    let targetUser = null;
 
-  if (user) {
-    try {
-      targetUser = await prisma.user.findUnique({
-        where: {
-          email: String(user.email),
-        },
-      });
-      return targetUser;
-    } catch (err) {
-      console.log(err, " user error");
-    } finally {
-      prisma.$disconnect();
+    if (user) {
+      try {
+        targetUser = await prisma.user.findUnique({
+          where: {
+            email: String(user.email),
+          },
+        });
+        return targetUser;
+      } catch (err) {
+        console.log(err, " user error");
+      } finally {
+        prisma.$disconnect();
+      }
     }
-  }
-};
+  };
   const targetUser = await checkUser();
   return (
     <header className="w-full flex justify-center py-4 md:py-8 border-b-2 border-[#F3F3F3] relative">
@@ -45,11 +43,10 @@ const checkUser = async () => {
           {HeaderNavs.map((el, _i) => (
             <HeaderNav key={_i} value={el.value} id={el.id} href={el.href} />
           ))}
-          {!targetUser&&<HeaderNav id={31} value="Login" href="/auth/login"/>}
         </nav>
         {targetUser && <HeaderUserActions targetUser={targetUser} />}
         <div className="flex lg:hidden">
-          <HamburgerIcon />
+          <HamburgerButton />
         </div>
       </div>
     </header>

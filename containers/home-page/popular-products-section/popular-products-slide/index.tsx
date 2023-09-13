@@ -11,10 +11,10 @@ import { SlideArrow } from "@/components/Icons/SlideArrow";
 import { TProduct } from "@/types/Product";
 
 interface PopularProductsSlideProps {
-  items:TProduct[]
+  items: TProduct[];
 }
 
-const PopularProductsSlide: FC<PopularProductsSlideProps> = ({items}) => {
+const PopularProductsSlide: FC<PopularProductsSlideProps> = ({ items }) => {
   const swiperRef = useRef<any>(null);
   return (
     <Swiper
@@ -26,15 +26,15 @@ const PopularProductsSlide: FC<PopularProductsSlideProps> = ({items}) => {
       centeredSlides
       onSwiper={(swiper) => (swiperRef.current = swiper)}
     >
-      {items?.map((el,_i) => (
-      <SwiperSlide key={_i} className={styles.popularProductsSlide__slide}>
-        <ProductCard item={el}/>
-      </SwiperSlide>
+      {items?.map((el, _i) => (
+        <SwiperSlide key={_i} className={styles.popularProductsSlide__slide}>
+          <ProductCard item={el} />
+        </SwiperSlide>
       ))}
-      {items?.map((el,_i) => (
-      <SwiperSlide key={_i} className={styles.popularProductsSlide__slide}>
-        <ProductCard item={el}/>
-      </SwiperSlide>
+      {items?.map((el, _i) => (
+        <SwiperSlide key={_i} className={styles.popularProductsSlide__slide}>
+          <ProductCard item={el} />
+        </SwiperSlide>
       ))}
 
       <button

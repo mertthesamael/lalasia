@@ -15,7 +15,8 @@ const AboutTeamSection: FC<AboutTeamSectionProps> = ({}) => {
               Benefits
             </h1>
             <h2 className="text-black md:text-5xl font-bold text-2xl">
-            Meet our leading and<br/> strong team
+              Meet our leading and
+              <br /> strong team
             </h2>
           </div>
           <div className="w-full md:max-w-[505px] h-full flex items-end">
@@ -26,7 +27,15 @@ const AboutTeamSection: FC<AboutTeamSectionProps> = ({}) => {
           </div>
         </div>
         <div className="flex flex-wrap justify-center lg:justify-between w-full gap-7">
-            {TeamMembers.map((el, _i) => <PeopleCard key={_i} imgUrl={el.imgUrl} id={el.id} name={el.name} title={el.title}/>)}
+          {TeamMembers.map((el, _i) => (
+            <PeopleCard
+              key={_i}
+              imgUrl={el.imgUrl}
+              id={el.id}
+              name={el.name}
+              title={el.title}
+            />
+          ))}
         </div>
       </div>
     </section>

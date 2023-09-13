@@ -1,8 +1,8 @@
-import { useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
+import { useSearchParams } from "next/navigation";
+import { useCallback } from "react";
 
 // Define the type for the hook function
-type CreateQueryStringFn = (name: string, value: string|number) => string;
+type CreateQueryStringFn = (name: string, value: string | number) => string;
 
 const useCreateQueryString: () => CreateQueryStringFn = () => {
   // Wrap your existing createQueryString function in useCallback

@@ -1,9 +1,6 @@
-
-
-
 export type ServicesType = {
-    id:number,
-    title:string,
-    icon?:JSX.Element,
-    content:string
-}
+  id: number;
+  title: string;
+  icon?: JSX.Element;
+  content: string;
+};

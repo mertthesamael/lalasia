@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import React, { FC } from "react";
 import { signupHandler } from "@/actions/auth";
@@ -7,26 +7,26 @@ import { useRouter } from "next/navigation";
 
 interface SignupFormProps {}
 const SignupForm: FC<SignupFormProps> = ({}) => {
-  const router = useRouter()
-  const clientAction = async(formData:FormData) => {
-    const data = await signupHandler(formData)
-    
-    if(data?.error){
-      toast.error(data.error.message)
+  const router = useRouter();
+  const clientAction = async (formData: FormData) => {
+    const data = await signupHandler(formData);
+
+    if (data?.error) {
+      toast.error(data.error.message);
     }
-    data?.data.user&&router.push('/auth/login')
-}
+    data?.data.user && router.push("/auth/login");
+  };
   return (
     <form
       action={clientAction}
       className="w-full h-max flex flex-col items-center gap-6 bg-transparent"
     >
       <input
-    type="text"
-    name="name"
-    placeholder="name"
-    className="placeholder:font-medium bg-transparent w-full border text-black py-1 px-2 focus:outline-primaryColor/80 rounded-sm"
-  ></input>
+        type="text"
+        name="name"
+        placeholder="name"
+        className="placeholder:font-medium bg-transparent w-full border text-black py-1 px-2 focus:outline-primaryColor/80 rounded-sm"
+      ></input>
       <input
         type="text"
         name="email"

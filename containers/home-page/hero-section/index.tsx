@@ -14,22 +14,30 @@ const HeroSection: FC<HeroSectionProps> = ({}) => {
             <h1 className="text-2xl md:text-6xl text-black font-bold">
               Discover Furniture With High Quality Wood
             </h1>
-            <SkectchStar className="w-6 h-6 md:w-[40px] md:h-[40px] lg:h-[51px] lg:w-[51px]"/>
-            <SketchArrow className="absolute lg:-left-40 -left-10 -bottom-10 lg:-bottom-60 h-[83px]  lg:w-[249px] w-[83px]  lg:h-[249px]"/>
+            <SkectchStar className="w-6 h-6 md:w-[40px] md:h-[40px] lg:h-[51px] lg:w-[51px]" />
+            <SketchArrow className="absolute lg:-left-40 -left-10 -bottom-10 lg:-bottom-60 h-[83px]  lg:w-[249px] w-[83px]  lg:h-[249px]" />
           </div>
           <div>
             <p className="text-textColor text-sm md:text-lg">
-            Pellentesque etiam blandit in tincidunt at donec. Eget ipsum dignissim placerat nisi, adipiscing mauris non. Purus parturient viverra nunc, tortor sit laoreet. Quam tincidunt aliquam adipiscing tempor.
+              Pellentesque etiam blandit in tincidunt at donec. Eget ipsum
+              dignissim placerat nisi, adipiscing mauris non. Purus parturient
+              viverra nunc, tortor sit laoreet. Quam tincidunt aliquam
+              adipiscing tempor.
             </p>
           </div>
         </div>
         <div className="w-full relative flex justify-center flex-col items-center gap-8">
-            <div className="md:absolute top-[-2.5rem] w-full h-[48px]  md:max-w-[810px] z-10">
-                <SearchInput />
-            </div>
-            <div className="w-full h-[160px] md:h-[480px]  border-black relative overflow-hidden">
-                <Image className="rounded-lg object-cover" src={'/hero.png'} fill alt="Hero IMG"/>
-            </div>
+          <div className="md:absolute top-[-2.5rem] w-full h-[48px]  md:max-w-[810px] z-10">
+            <SearchInput />
+          </div>
+          <div className="w-full h-[160px] md:h-[480px]  border-black relative overflow-hidden">
+            <Image
+              className="rounded-lg object-cover"
+              src={"/hero.png"}
+              fill
+              alt="Hero IMG"
+            />
+          </div>
         </div>
       </div>
     </section>

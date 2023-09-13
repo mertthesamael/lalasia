@@ -19,26 +19,25 @@ interface HeaderUserActionsProps {
 
 const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const router = useRouter()
-  const supabase = createClientComponentClient()
+  const router = useRouter();
+  const supabase = createClientComponentClient();
   const { user, handleUser } = useUserStore();
   const signOut = async () => {
-    let res = await handleSignOut()
-    if(res){
-      handleUser(null)
-      toast.success('Successfully signed out!')
-      router.push('/')
+    let res = await handleSignOut();
+    if (res) {
+      handleUser(null);
+      toast.success("Successfully signed out!");
+      router.push("/");
     }
-  }
+  };
 
-  const getUser = async() => {
-
-      if (!user) {
-          handleUser(targetUser);
-        }
-    };
-    useEffect(() => {
-      console.log(targetUser)
+  const getUser = async () => {
+    if (!user) {
+      handleUser(targetUser);
+    }
+  };
+  useEffect(() => {
+    console.log(targetUser);
     getUser();
   }, [targetUser]);
 
@@ -54,14 +53,16 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
     return () => document.removeEventListener("click", handleClick);
   }, []);
   return (
-    <div className="gap-6 w-40 justify-end hidden lg:flex">
+    <div className={`gap-6 w-40 justify-end hidden lg:flex `}>
       <div className="flex relative flex-col">
-          <Link href={'/checkout'}>
-        <div className="flex">
-        <Basket />
-        <h1 className="text-secondaryColor font-bold">{user?.basket.length}</h1>
-        </div>
-          </Link>
+        <Link href={"/checkout"}>
+          <div className="flex">
+            <Basket />
+            <h1 className="text-secondaryColor font-bold">
+              {user?.basket.length}
+            </h1>
+          </div>
+        </Link>
       </div>
       <div className="flex flex-col relative">
         <div
@@ -80,7 +81,11 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
               <h1 className="text-black text-xl font-medium border-b border-primaryColor">
                 {user.displayName}
               </h1>
-              <PrimaryButton onClick={signOut} text="Sign Out" className="!bg-secondaryColor !w-max !h-max !py-2"/>
+              <PrimaryButton
+                onClick={signOut}
+                text="Sign Out"
+                className="!bg-secondaryColor !w-max !h-max !py-2"
+              />
             </div>
           ) : (
             <>

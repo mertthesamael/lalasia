@@ -21,17 +21,28 @@ const ArticlesSection: FC<ArticlesSectionProps> = ({}) => {
             </div>
             <div className="">
               <p className="text-textColor text-sm md:text-lg">
-              Pellentesque etiam blandit in tincidunt at donec. 
+                Pellentesque etiam blandit in tincidunt at donec.
               </p>
             </div>
           </div>
           <div className="flex items-center max-w-full">
-            <ArticlesSlide/>
+            <ArticlesSlide />
           </div>
         </div>
         <div className="flex flex-col  items-end gap-8 h-max xl:w-full">
-          {mockArticles.map((el, _i) => <ArticleCard key={_i} horizontal id={el.id} imgUrl={el.imgUrl} author={el.author} date={el.date} content={el.content} title={el.title} category={el.category}/>)}
-
+          {mockArticles.map((el, _i) => (
+            <ArticleCard
+              key={_i}
+              horizontal
+              id={el.id}
+              imgUrl={el.imgUrl}
+              author={el.author}
+              date={el.date}
+              content={el.content}
+              title={el.title}
+              category={el.category}
+            />
+          ))}
         </div>
       </div>
     </section>

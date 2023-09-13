@@ -3,12 +3,12 @@
 import { JsonValue } from "@prisma/client/runtime/library";
 import { TProduct } from "./Product";
 
-export type TUser = TPureUser | null
+export type TUser = TPureUser | null;
 
 export type TPureUser = {
   id: number;
   displayName: string;
-  email:string;
-  basket:any[]
-  totalPrice:number
-}
+  email: string;
+  basket: any[];
+  totalPrice: number;
+};

@@ -27,17 +27,15 @@ const ServicesPortfolio: FC<ServicesPortfolioProps> = ({}) => {
         </div>
         <div className="w-full min-h-[632px] flex flex-col xl:flex-row justify-between gap-6 ">
           <div className="w-full h-[409px] xl:h-full xl:w-[505px]">
-            <ResponsiveCard/>
+            <ResponsiveCard />
           </div>
           <div className="flex flex-col justify-between gap-6">
             <div className="h-[409px] w-full xl:w-[705px] xl:h-[301px]">
-
-          <ResponsiveCard/>
+              <ResponsiveCard />
             </div>
             <div className="h-[409px] w-full xl:w-[705px] xl:h-[301px]">
-          <ResponsiveCard/>
+              <ResponsiveCard />
             </div>
-
           </div>
         </div>
       </div>
