@@ -6,6 +6,7 @@ import React, { FC } from "react";
 import { useUserStore } from "@/store/useUserStore";
 import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { GoogleIcon } from "@/components/Icons/Google";
 
 interface LoginFormProps {}
 const getURL = () => {
@@ -59,10 +60,13 @@ const LoginForm: FC<LoginFormProps> = ({}) => {
       action={clientAction}
       className="w-full h-max flex flex-col items-center gap-6 bg-transparent"
     >
+      <div className="flex gap-6 items-center">
+      <GoogleIcon className="w-10"/>
       <h1 onClick={() => {
         let data= signInGoogle()
         console.log(data)
-        }} className="text-xl text-black cursor-pointer">Google</h1>
+      }} className="text-lg text-black cursor-pointer">Sign in with Google</h1>
+      </div>
       <input
         name="email"
         type="text"

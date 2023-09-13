@@ -8,7 +8,8 @@ interface CheckoutFormSectionProps {
 const CheckoutFormSection: FC<CheckoutFormSectionProps> = ({  }) => {
   return (
     <section className='flex w-full justify-center'>
-        <div className='flex py-10 flex-col lg:flex-row md:py-15 justify-between items-center  gap-8 md:gap-24 w-full max-w-screen-xl mx-5 md:mx-20 relative'>
+            <div className='flex flex-col py-10 md:py-28 items-center  gap-8 md:gap-24 w-full max-w-screen-xl mx-5 md:mx-20'>
+
            <BasketItems />
         </div>
     </section>

@@ -52,6 +52,7 @@ export const loginHandler = async (formData: FormData) => {
 export const signupHandler = async (formData: FormData) => {
   const email = String(formData.get("email"));
   const password = String(formData.get("password"));
+  const name = String(formData.get("name"));
   const supabase = createRouteHandlerClient({ cookies });
 
   try {
@@ -65,7 +66,7 @@ export const signupHandler = async (formData: FormData) => {
     if (data?.user) {
       const newUser = await prisma.user.create({
         data: {
-          displayName: "Merto",
+          displayName: String(name),
           email: String(email),
           totalPrice:0
         },

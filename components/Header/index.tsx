@@ -45,6 +45,7 @@ const checkUser = async () => {
           {HeaderNavs.map((el, _i) => (
             <HeaderNav key={_i} value={el.value} id={el.id} href={el.href} />
           ))}
+          {!targetUser&&<HeaderNav id={31} value="Login" href="/auth/login"/>}
         </nav>
         {targetUser && <HeaderUserActions targetUser={targetUser} />}
         <div className="flex lg:hidden">

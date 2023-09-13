@@ -5,6 +5,7 @@ import BasketCard from '@/components/Cards/BasketCard';
 import { postBasket } from '@/libs/endpoints';
 import { useUserStore } from '@/store/useUserStore';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import React, { FC } from 'react'
 
 interface BasketItemsProps {
@@ -13,6 +14,7 @@ interface BasketItemsProps {
 
 const BasketItems: FC<BasketItemsProps> = ({  }) => {
     const { user,handleUser } = useUserStore()
+    const router = useRouter()
     const removeBasketItems = async() => {
         const {data} = await axios.post(postBasket,{action:'wipe',user:user})
         if(data){
@@ -21,8 +23,10 @@ const BasketItems: FC<BasketItemsProps> = ({  }) => {
       }
     if(user?.basket.length===0){
         return(
-            <div className='w-full  h-[25rem] text-center '>
-                <h1 className='text-black text-3xl'>You Have Not Selected Any Products Yet!</h1>
+            <div className='w-full  h-[25rem] flex flex-col items-center gap-10 text-center'>
+                <h1 className='text-black w-[50rem] text-2xl md:text-6xl font-bold'>You Have Not Selected Any Products Yet!</h1>
+                <PrimaryButton text='Go Shopping!' className='!font-bold' onClick={() => router.push('/products')}/>
+
             </div>
         )
     }

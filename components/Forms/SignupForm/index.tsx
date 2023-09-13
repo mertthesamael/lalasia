@@ -22,6 +22,12 @@ const SignupForm: FC<SignupFormProps> = ({}) => {
       className="w-full h-max flex flex-col items-center gap-6 bg-transparent"
     >
       <input
+    type="text"
+    name="name"
+    placeholder="name"
+    className="placeholder:font-medium bg-transparent w-full border text-black py-1 px-2 focus:outline-primaryColor/80 rounded-sm"
+  ></input>
+      <input
         type="text"
         name="email"
         placeholder="e-mail"
@@ -33,11 +39,6 @@ const SignupForm: FC<SignupFormProps> = ({}) => {
         placeholder="password"
         className="placeholder:font-medium bg-transparent w-full border text-black py-1 px-2 focus:outline-primaryColor/80 rounded-sm"
       ></input>
-      <input
-        type="text"
-        placeholder="password"
-        className="placeholder:font-medium bg-transparent w-full border text-black py-1 px-2 focus:outline-primaryColor/80 rounded-sm"
-      />
       <PrimaryButton type="submit" text="Signup" className="font-medium" />
     </form>
   );
