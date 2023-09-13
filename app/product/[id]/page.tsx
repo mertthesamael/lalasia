@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Suspense } from 'react'
 import type { Metadata } from 'next'
 import ItemSection from '@/containers/product-page/item-section'
 import RelatedSection from '@/containers/product-page/related-section'
@@ -37,13 +37,14 @@ export async function generateMetadata(
   }
 const Product: FC<ProductProps> = async({ params }) => {
   const product = await getSingleProduct(params.id)
-  console.log(product.data)
   if(!product.data){
     notFound()
   }
   return (
     <main>
+      <Suspense>
       <ItemSection item={product.data}/>
+      </Suspense>
       <RelatedSection />
     </main>
   )

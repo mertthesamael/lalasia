@@ -10,6 +10,7 @@ import { useUserStore } from "@/store/useUserStore";
 import cryptoRandomString from "crypto-random-string";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
+import useCreateQueryString from "@/hooks/useQueryString";
 
 interface ItemSectionProps {
   item: TProduct;
@@ -26,14 +27,8 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
     ? searchParams.get("color")
     : item.color;
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
-      params.set(name, String(value));
-      return params.toString();
-    },
-    [searchParams]
-  );
+  const createQueryString = useCreateQueryString()
+
   
   const addBasket = async () => {
     const isValidColor = item.colors.filter(

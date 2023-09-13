@@ -13,9 +13,7 @@ const ProductsSearch: FC<ProductsSearchProps> = ({  }) => {
         <div className='w-full shadow-[0_4px_120px_0px_rgba(175,173,181,0.3)]'>
         <SearchInput />
         </div>
-        <div className='hidden md:flex'>
-        <FilterDropdown/>
-        </div>
+
      </div>
     </section>
   )

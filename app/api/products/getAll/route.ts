@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
   }
 }
 export async function POST(request: NextRequest) {
-  const { page, perItems } = await request.json();
+  const { page, perItems,sort } = await request.json();
 
   const slicer = (itemsPerPage:number,products:any[]) => {
     const startIndex = (page - 1) * itemsPerPage;
@@ -35,6 +35,13 @@ export async function POST(request: NextRequest) {
   }
   try {
     const products = await prisma.product.findMany();
+    let sorted = products
+    if(sort==='pricelow'){
+      sorted = products.sort((a, b) => a.price - b.price);
+    }else if(sort==='pricehigh'){
+      sorted = products.sort((a, b) => b.price - a.price);
+
+    }
     const res = slicer(perItems,products)
     return NextResponse.json({ data: res, size: products.length });
   } catch (err) {

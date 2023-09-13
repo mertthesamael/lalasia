@@ -1,25 +1,20 @@
 import ProductCard from '@/components/Cards/ProductCard';
-import { Sort } from '@/components/Icons/Sort';
+import SortDropDown from '@/components/DropDowns/Sort';
 import Pagination from '@/components/Pagination';
 import { TProduct } from '@/types/Product';
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 
-interface PromiseItemsProps {
+interface ProductsItemsProps {
   products:TProduct[]
   size:number,
   itemsPerView:number
 }
 
-const loader = async() => {
-  const test = await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("Promise resolved after 2 seconds");
-    }, 2000); // 2000 milliseconds = 2 seconds
-  });
-  return test
-}
-const PromiseItems: FC<PromiseItemsProps> = async({ products,size,itemsPerView }) => {
-  const data = await loader()
+
+const ProductsItems: FC<ProductsItemsProps> = ({ products,size,itemsPerView }) => {
+  // This one provides fake loader
+  // const data = await loader()
+
   return (
     <section className='w-full flex justify-center'>
       <div className='flex flex-col justify-between  gap-2 md:gap-5 w-full max-w-screen-xl mx-5 md:mx-20   md:px-0'>
@@ -29,8 +24,7 @@ const PromiseItems: FC<PromiseItemsProps> = async({ products,size,itemsPerView }
             <span className='text-primaryColor text-xs md:text-base px-4 bg-[#F9F9F9] rounded-lg grid place-items-center h-max'>{size}</span>
             </div>
             <div className='hidden lg:flex gap-6'>
-              <Sort/>
-              <span className='text-black text-lg'>Sort By</span>
+              <SortDropDown />
           </div>
         </div>
         <div id='items' className='w-full flex flex-wrap gap-[30px] justify-between'>
@@ -44,4 +38,4 @@ const PromiseItems: FC<PromiseItemsProps> = async({ products,size,itemsPerView }
   )
 }
 
-export default PromiseItems;
+export default ProductsItems;
