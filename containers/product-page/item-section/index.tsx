@@ -34,20 +34,24 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
       (color) => color === selectedColor
     ).length;
     if (isValidColor > 0) {
-      const { data } = await axios.post(postBasket, {
-        action: "add",
-        user: user,
-        payload: {
-          item: item,
-          id: cryptoRandomString({ length: 15 }),
-          color: selectedColor,
-        },
-      });
-      if (data) {
-        toast.success(item.name+'Successfully added to your basket!')
-        return handleUser(data.result);
-      } else {
-        return toast.error("Something Went Wrong");
+      try {
+        const { data } = await axios.post(postBasket, {
+          action: "add",
+          user: user,
+          payload: {
+            item: item,
+            id: cryptoRandomString({ length: 15 }),
+            color: selectedColor,
+          },
+        });
+        if (data) {
+          toast.success(item.name + "Successfully added to your basket!");
+          return handleUser(data.result);
+        } else {
+          return toast.error("Something Went Wrong");
+        }
+      } catch (err) {
+        return toast.error("You need to Login first");
       }
     }
     return toast.error("Wrong color");

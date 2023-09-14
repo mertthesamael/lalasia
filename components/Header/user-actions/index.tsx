@@ -3,18 +3,16 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import { Basket } from "@/components/Icons/Basket";
 import { Profile } from "@/components/Icons/Profile";
 import { handleSignOut } from "@/db/auth";
-import { postBasket } from "@/libs/endpoints";
 import { useUserStore } from "@/store/useUserStore";
 import { TUser } from "@/types/User";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { FC, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 interface HeaderUserActionsProps {
-  targetUser: TUser;
+  targetUser?: TUser;
 }
 
 const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
@@ -32,7 +30,7 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
   };
 
   const getUser = async () => {
-    if (!user) {
+    if (!user&&targetUser) {
       handleUser(targetUser);
     }
   };
@@ -54,7 +52,7 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
   }, []);
   return (
     <div className={`gap-6 w-40 justify-end hidden lg:flex `}>
-      <div className="flex relative flex-col">
+      <div className={`flex relative flex-col ${user ? 'flex' : 'hidden'}`}>
         <Link href={"/checkout"}>
           <div className="flex">
             <Basket />

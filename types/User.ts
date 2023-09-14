@@ -2,6 +2,7 @@
 
 import { JsonValue } from "@prisma/client/runtime/library";
 import { TProduct } from "./Product";
+import { TBasketItem } from "./BasketItem";
 
 export type TUser = TPureUser | null;
 

@@ -44,7 +44,7 @@ const Header: FC<HeaderProps> = async ({ user }) => {
             <HeaderNav key={_i} value={el.value} id={el.id} href={el.href} />
           ))}
         </nav>
-        {targetUser && <HeaderUserActions targetUser={targetUser} />}
+        <HeaderUserActions targetUser={targetUser} />
         <div className="flex lg:hidden">
           <HamburgerButton />
         </div>

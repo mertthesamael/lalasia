@@ -46,6 +46,7 @@ model Order {
   user      User    @relation(fields: [userId], references: [id])
   userId    Int
   price Float
+  date  DateTime
 }
 
 enum Category {

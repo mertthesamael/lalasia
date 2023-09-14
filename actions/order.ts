@@ -12,21 +12,24 @@ export const orderHandler = async (user: TUser) => {
         },
       });
       if (targetUser) {
+
         const res = await prisma.order.create({
           data: {
             products: user.basket,
             userId: targetUser.id,
             price: targetUser.totalPrice,
+            date: new Date()
           },
         });
         if (res.id) {
+          let test = user.basket.length = 0
           const updatedUser = await prisma.user.update({
             where: {
               email: user.email,
             },
             data: {
               totalPrice: 0,
-              basket: [],
+              basket: []
             },
           });
           return updatedUser;

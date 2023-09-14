@@ -2,17 +2,22 @@
 import { orderHandler } from "@/actions/order";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import BasketCard from "@/components/Cards/BasketCard";
+import useCreateQueryString from "@/hooks/useQueryString";
 import { postBasket } from "@/libs/endpoints";
 import { useUserStore } from "@/store/useUserStore";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { FC } from "react";
+import { toast } from "react-toastify";
 
 interface BasketItemsProps {}
 
 const BasketItems: FC<BasketItemsProps> = ({}) => {
   const { user, handleUser } = useUserStore();
   const router = useRouter();
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const createQueryString = useCreateQueryString()
   const removeBasketItems = async () => {
     const { data } = await axios.post(postBasket, {
       action: "wipe",
@@ -40,6 +45,9 @@ const BasketItems: FC<BasketItemsProps> = ({}) => {
     const updatedUser = await orderHandler(user);
     if (updatedUser) {
       handleUser(updatedUser);
+      router.push(pathname + "?" + createQueryString('complate','true'))
+    }else{
+       toast.error('error')
     }
   };
   return (
@@ -49,7 +57,7 @@ const BasketItems: FC<BasketItemsProps> = ({}) => {
       </div>
       <div className="flex flex-wrap justify-between self-start">
         {user?.basket.map((el, _i) => (
-          <BasketCard item={el} />
+          <BasketCard key={_i} item={el} />
         ))}
       </div>
       <div className="flex gap-2">
