@@ -16,7 +16,7 @@ const OrderCard: FC<OrderCardProps> = ({ order }) => {
         </div>
         <div className='flex flex-col gap-4'>
             {order.products.map((el, _i) => (
-              <Link href={`/product/${el.item.id}`} className='text-textColor text-base'>{el.item.name}  <span
+              <Link key={_i} href={`/product/${el.item.id}`} className='text-textColor text-base'>{el.item.name}  <span
               style={{ background: colors[el.item.color] }}
               className="text-white text-[8px] ml-3 xl:text-xs truncate px-2 py-1 bg-primaryColor w-max"
             >
