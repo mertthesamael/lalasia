@@ -28,7 +28,7 @@ In this project, I have undertaken the development of both the front-end and bac
 Clone the project
 
 `
-  git clone https://github.com/mertthesamael/lalasia
+  git clone https://github.com/mertthesamael/lalasia.git
 `
 
 Install Lalasia with pnpm
