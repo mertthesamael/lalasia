@@ -40,12 +40,14 @@ model Product {
   colors      Color[]
 }
 
+
 model Order {
   id        Int     @id @default(autoincrement())
   products Json[]
   user      User    @relation(fields: [userId], references: [id])
   userId    Int
   price Float
+  userMail String
   date  DateTime
 }
 

@@ -18,9 +18,7 @@ const Pagination: FC<PaginationProps> = ({ itemPerView, totalItems }) => {
   const createQueryString = useCreateQueryString();
   return (
     <div className="flex justify-center items-center gap-6 py-6">
-      <div>
-        <SlideArrow stroke="black" />
-      </div>
+
       <div>
         {Array(Math.ceil(totalItems / itemPerView))
           .fill(0)
@@ -36,9 +34,6 @@ const Pagination: FC<PaginationProps> = ({ itemPerView, totalItems }) => {
               value={_i + 1}
             />
           ))}
-      </div>
-      <div>
-        <SlideArrow stroke="black" className="rotate-180" />
       </div>
     </div>
   );

@@ -11,13 +11,15 @@ const Footer: FC<FooterProps> = ({}) => {
       <div className="w-full flex-col lg:flex-row max-w-screen-xl mx-5 md:mx-20 flex gap-10 justify-between">
         <div className="flex flex-col gap-9 ">
           <div>
-            <Brand></Brand>
+            <Brand />
           </div>
-          <div className="w-[327px] md:w-[505px]">
+          <div className="w-[327px] md:w-[505px] flex flex-col gap-3">
             <p className="text-black text-sm md:text-lg">
               Lalasia is digital agency that help you make better experience
               iaculis cras in.
             </p>
+            <p className="text-black font-bold text-sm md:text-base">Developed by</p>
+            <Link href={'https://www.merto.dev'} target="_blank" className="text-secondaryColor font-bold text-sm md:text-lg">Mert Enercan</Link>
           </div>
         </div>
         <div className="flex justify-between md:gap-28">

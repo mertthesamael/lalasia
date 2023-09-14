@@ -3,6 +3,7 @@
 import { prisma } from "@/db/client";
 import { TUser } from "@/types/User";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 
 const getURL = () => {
@@ -37,6 +38,8 @@ export const loginHandler = async (formData: FormData) => {
       });
       user = targetUser;
     }
+    revalidateTag('orders')
+
     return {
       error: error?.message,
       data: data,
@@ -72,6 +75,8 @@ export const signupHandler = async (formData: FormData) => {
         },
       });
     }
+    revalidateTag('orders')
+
     return {
       data: data,
       error: error,

@@ -9,7 +9,7 @@ import { getOrders } from "@/libs/endpoints";
 interface OrdersPageProps {}
 
 const getUserOrders = async (id: string) => {
-  const { data } = await axios.post(getOrders, {});
+  const { data } = await axios.post(getOrders, {userMail:id});
   return data;
 };
 const OrdersPage: FC<OrdersPageProps> = async ({}) => {

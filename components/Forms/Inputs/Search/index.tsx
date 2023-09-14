@@ -16,7 +16,7 @@ const SearchInput: FC<SearchInputProps> = ({}) => {
         <input
           type="text"
           name="searchKey"
-          placeholder="Search property"
+          placeholder="Search for a product"
           className="h-full w-full text-black border-none outline-none"
         />
         <PrimaryButton text="Search" />

@@ -9,6 +9,7 @@ export type TBasketItem = {
     color: string;
     colors: string[];
     userId: number;
+    id:number
   };
   id: string;
   color: string;

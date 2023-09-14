@@ -15,7 +15,6 @@ interface BasketItemsProps {}
 const BasketItems: FC<BasketItemsProps> = ({}) => {
   const { user, handleUser } = useUserStore();
   const router = useRouter();
-  const searchParams = useSearchParams()
   const pathname = usePathname()
   const createQueryString = useCreateQueryString()
   const removeBasketItems = async () => {
@@ -43,9 +42,12 @@ const BasketItems: FC<BasketItemsProps> = ({}) => {
   }
   const order = async () => {
     const updatedUser = await orderHandler(user);
-    if (updatedUser) {
+    console.log(updatedUser,'UPDATED USER')
+    if (updatedUser&&updatedUser.basket.length === 0 ) {
       handleUser(updatedUser);
-      router.push(pathname + "?" + createQueryString('complate','true'))
+      // router.push('/orders')
+
+     router.push(pathname + "?" + createQueryString('complate','true'))
     }else{
        toast.error('error')
     }

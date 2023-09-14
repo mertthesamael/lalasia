@@ -1,7 +1,10 @@
 "use server";
 
 import { prisma } from "@/db/client";
+import { postBasket } from "@/libs/endpoints";
 import { TUser } from "@/types/User";
+import axios from "axios";
+import { revalidateTag } from "next/cache";
 
 export const orderHandler = async (user: TUser) => {
   if (user && user.basket) {
@@ -17,22 +20,26 @@ export const orderHandler = async (user: TUser) => {
           data: {
             products: user.basket,
             userId: targetUser.id,
+            userMail:targetUser.email,
             price: targetUser.totalPrice,
             date: new Date()
           },
         });
         if (res.id) {
-          let test = user.basket.length = 0
-          const updatedUser = await prisma.user.update({
-            where: {
-              email: user.email,
-            },
-            data: {
-              totalPrice: 0,
-              basket: []
-            },
-          });
-          return updatedUser;
+          try{
+
+              const { data } = await axios.post(postBasket, {
+                action: "wipe",
+                user: user,
+              });
+              revalidateTag('orders')
+            
+            return data.result;
+          }catch(err){
+            console.log(err)
+          }finally{
+            await prisma.$disconnect()
+          }
         }
         return false;
       }
@@ -43,5 +50,5 @@ export const orderHandler = async (user: TUser) => {
       await prisma.$disconnect();
     }
   }
-  console.log(user, 123139127813698012738912389012790);
+
 };

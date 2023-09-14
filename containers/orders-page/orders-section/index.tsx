@@ -13,9 +13,11 @@ console.log(orders)
   return (
     <section className="flex w-full justify-center">
       <div className="flex flex-col py-10 md:py-28 items-center  gap-8 md:gap-24 w-full max-w-screen-xl mx-5 md:mx-20">
+        <div className='flex justify-center gap-6 flex-wrap'>
         {orders.map((el,_i) => (
-            <OrderCard key={_i} order={el}/>
-        ))}
+          <OrderCard key={_i} order={el}/>
+          ))}
+          </div>
       </div>
     </section>
   )

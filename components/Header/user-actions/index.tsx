@@ -70,15 +70,19 @@ const HeaderUserActions: FC<HeaderUserActionsProps> = ({ targetUser }) => {
           <Profile />
         </div>
         <div
-          className={`bg-white flex flex-col w-max h-max max-h-0 overflow-hidden absolute top-[4.5rem] transition-all ${
-            isProfileOpen ? "!max-h-[10rem] " : "!max-h-0"
+          className={`bg-white shadow-md p-2 flex flex-col w-max h-max max-h-0 overflow-hidden absolute top-[4.5rem] transition-all ${
+            isProfileOpen ? "!max-h-[10rem] " : "!max-h-0 !p-0"
           }`}
         >
           {user ? (
-            <div className="flex flex-col gap-2 ">
-              <h1 className="text-black text-xl font-medium border-b border-primaryColor">
-                {user.displayName}
+            <div className="flex flex-col gap-3">
+              <h1 className="text-primaryColor text-xl font-medium  border-primaryColor">
+                {user.displayName.split(' ')[0]}
               </h1>
+              <div className="flex flex-col gap-1">
+                <Link href={'/orders'} className="text-base text-black">Orders</Link>
+                <Link href={'/checkout'} className="text-base text-black">Basket <span className="text-sm">{`(${user.basket.length})`}</span></Link>
+              </div>
               <PrimaryButton
                 onClick={signOut}
                 text="Sign Out"
