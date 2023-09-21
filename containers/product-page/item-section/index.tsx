@@ -87,7 +87,7 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
                 <div
                   key={_i}
                   onClick={() =>
-                    router.push(pathname + "?" + createQueryString("color", el))
+                    router.push(pathname + "?" + createQueryString("color", el),{scroll:false})
                   }
                   style={{ background: colors[el] }}
                   className={`cursor-pointer bottom-0 relative transition-all h-[50px] w-[50px] ${

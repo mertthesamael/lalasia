@@ -9,7 +9,9 @@ const getItems = async () => {
   const { data } = await axios(getAll);
   return data;
 };
+
 const RelatedSection: FC<RelatedSectionProps> = async({}) => {
+
   const items = await getItems()
   return (
     <section className="w-full flex justify-center">

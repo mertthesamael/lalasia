@@ -26,7 +26,7 @@ const Pagination: FC<PaginationProps> = ({ itemPerView, totalItems }) => {
             <PageButton
               key={_i}
               onClick={() => {
-                router.push(pathname + "?" + createQueryString("page", _i + 1));
+                router.push(pathname + "?" + createQueryString("page", _i + 1),{scroll:false});
               }}
               currentPage={
                 searchParams.get("page") ? Number(searchParams.get("page")) : 1
