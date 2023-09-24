@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest) : Promise<any> {
   const { action, payload, user, item } = await request.json();
 
   if (action === "add") {
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
       });
       return NextResponse.json({ data: "added", result: result });
     }
-    return NextResponse.json({ data: "removed" });
+    return NextResponse.json({ data: "removed" }, { status: 500 });
   } else if (action === "wipe") {
     if (user) {
       const result = await prisma.user.update({
@@ -74,6 +74,6 @@ export async function POST(request: NextRequest) {
       });
       return NextResponse.json({ data: "added", result: result });
     }
-    return NextResponse.json({ data: "removed" });
+    return NextResponse.json({ data: "removed" }, { status: 500 });
   }
 }

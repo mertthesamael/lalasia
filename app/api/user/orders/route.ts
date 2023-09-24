@@ -5,7 +5,7 @@ import type { NextRequest } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest) : Promise<any> {
   const { userMail } = await request.json();
   const tag = request.nextUrl.searchParams.get('orders')
   tag&&revalidateTag(tag)
