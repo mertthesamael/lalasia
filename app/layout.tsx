@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import createClient from "@/db/client";
 import MobileMenu from "@/components/MobileMenu";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: "Lalasia",
@@ -34,6 +35,7 @@ export default async function RootLayout({
         <MobileMenu />
         <ToastContainer />
       </body>
+      <Analytics />
     </html>
   );
 }
