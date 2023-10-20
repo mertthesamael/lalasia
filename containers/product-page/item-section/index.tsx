@@ -91,7 +91,7 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
                   }
                   style={{ background: colors[el] }}
                   className={`cursor-pointer bottom-0 relative transition-all h-[50px] w-[50px] ${
-                    el === selectedColor ? "bottom-3 mx-3" : ""
+                    el === selectedColor ? "bottom-3" : ""
                   }`}
                 />
               ))}

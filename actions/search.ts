@@ -1,8 +1,8 @@
 "use server";
 
-import { prisma } from "@/db/client";
+
 import { redirect } from "next/navigation";
-import { NextResponse } from "next/server";
+
 
 const getURL = () => {
   let url =
