@@ -13,7 +13,6 @@ const getResults = async (searchValue: string | boolean) => {
 };
 const SearchPage: FC<SearchPageProps> = async ({ searchParams }) => {
   if (searchParams.search) {
-    console.log(searchParams.search);
     const { data } = await getResults(String(searchParams.search));
     return (
       <main>
