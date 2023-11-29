@@ -11,7 +11,7 @@ import { Suspense } from "react";
 
 
 
-export default async function Home() {
+export default function Home() {
   
 
   return (

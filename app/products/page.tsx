@@ -11,7 +11,7 @@ interface ProductsProps {
 
 
 
-const Products: FC<ProductsProps> = async ({ searchParams }) => {
+const Products: FC<ProductsProps> = ({ searchParams }) => {
  
 
   // Fake Loader
