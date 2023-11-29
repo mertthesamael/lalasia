@@ -7,20 +7,20 @@ import TestimonialSection from "@/containers/home-page/testimonial-section";
 import { getAll } from "@/libs/endpoints";
 import axios from "axios";
 import HeroSection from "@/containers/home-page/hero-section";
+import { Suspense } from "react";
 
-const getItems = async () => {
-  const data = await axios(getAll);
-  return data.data;
-};
+
 
 export default async function Home() {
-  const items = await getItems();
+  
 
   return (
     <main>
       <HeroSection />
       <ServicesSection />
-      <PopularProducts products={items?.data} />
+      <Suspense fallback={<h1>Loading..</h1>}>
+        <PopularProducts />
+      </Suspense>
       <InfoSection />
       <TestimonialSection />
       <ArticlesSection />

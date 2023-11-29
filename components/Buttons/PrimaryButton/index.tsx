@@ -1,7 +1,7 @@
 "use client";
 import Spinner from "@/components/Loaders/Spinner";
 import React, { FC } from "react";
-import { experimental_useFormStatus as useFormStatus } from "react-dom";
+import { useFormStatus } from "react-dom";
 
 interface PrimaryButtonProps {
   text: string;
