@@ -50,9 +50,8 @@ const items = await getItems(page, itemsPerView, sort);
           </div>
         </div>
         <div
-        style={{gridTemplateColumns:'repeat(auto-fill, minmax(360px, 1fr))'}}
           id="items"
-          className="w-full grid flex-wrap gap-[30px] justify-between"
+          className="w-full grid-cols-[repeat(auto-fill,_minmax(180px,_1fr))] md:grid-cols-[repeat(auto-fill,_minmax(330px,_1fr))] lg:grid-cols-[repeat(auto-fill,_minmax(360px,_1fr))] grid flex-wrap gap-[60px] "
         >
           {items.data.map((el:TProduct, _i:number) => (
             <ProductCard key={_i} item={el} />
