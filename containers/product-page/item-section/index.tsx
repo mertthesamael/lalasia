@@ -2,7 +2,7 @@
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import { TProduct } from "@/types/Product";
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { colors } from "./constants";
 import axios from "axios";
 import { postBasket } from "@/libs/endpoints";
@@ -15,19 +15,40 @@ import useCreateQueryString from "@/hooks/useQueryString";
 interface ItemSectionProps {
   item: TProduct;
 }
-
-const ItemSection: FC<ItemSectionProps> = ({ item }) => {
-  const { user, handleUser } = useUserStore();
-
-  const searchParams: any = useSearchParams();
+const ItemColorSelection = ({ item, currentColor }: { item: TProduct, currentColor: string }) => {
   const router = useRouter();
   const pathname = usePathname();
+  const createQueryString = useCreateQueryString();
+  const [selectedColor, setSelectedColor] = useState<string>(currentColor)
 
+  return (
+    <>
+      <h3 className="text-black text-sm md:text-lg font-semibold">
+        Color &nbsp;&nbsp;<span className="text-xs text-gray-400 font-normal">{selectedColor}</span>
+      </h3>
+      <div className="flex">
+        {item.colors.map((el, _i) => (
+          <div
+            key={_i}
+            onClick={() => { setSelectedColor(el); router.push(pathname + "?" + createQueryString("color", el), { scroll: false }) }
+            }
+            style={{ background: colors[el] }}
+            className={`cursor-pointer bottom-0 relative transition-all h-[50px] w-[50px] border-4 border-transparent ${el === selectedColor ? "  !border-primaryColor" : ""
+              }`}
+          />
+        ))}
+      </div>
+    </>
+  )
+}
+const ItemSection: FC<ItemSectionProps> = ({ item }) => {
+  const { user, handleUser } = useUserStore();
+  const searchParams: any = useSearchParams();
   const selectedColor = searchParams.get("color")
     ? searchParams.get("color")
     : item.color;
 
-  const createQueryString = useCreateQueryString();
+
 
   const addBasket = async () => {
     const isValidColor = item.colors.filter(
@@ -79,23 +100,7 @@ const ItemSection: FC<ItemSectionProps> = ({ item }) => {
             </span>
           </div>
           <div className="flex flex-col gap-5">
-            <h3 className="text-black text-sm md:text-lg font-semibold">
-              Color
-            </h3>
-            <div className="flex">
-              {item.colors.map((el, _i) => (
-                <div
-                  key={_i}
-                  onClick={() =>
-                    router.push(pathname + "?" + createQueryString("color", el),{scroll:false})
-                  }
-                  style={{ background: colors[el] }}
-                  className={`cursor-pointer bottom-0 relative transition-all h-[50px] w-[50px] ${
-                    el === selectedColor ? "bottom-3" : ""
-                  }`}
-                />
-              ))}
-            </div>
+            <ItemColorSelection currentColor={selectedColor} item={item} />
             <p className="text-textColor text-sm xl:text-lg ">
               {item.description}
             </p>

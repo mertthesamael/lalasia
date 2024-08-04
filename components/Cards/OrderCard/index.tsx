@@ -1,5 +1,5 @@
 import { colors } from '@/containers/product-page/item-section/constants';
-import { formatDateToSQLDateTime } from '@/services/dateTimeFormatter';
+import { formatDateToSQLDateTime } from '@/libs/utils';
 import { TOrder } from '@/types/Order';
 import Link from 'next/link';
 import React, { FC } from 'react'

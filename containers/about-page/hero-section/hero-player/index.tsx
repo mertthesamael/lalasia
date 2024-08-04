@@ -1,7 +1,7 @@
 "use client";
 import { Pause } from "@/components/Icons/Pause";
 import { Play } from "@/components/Icons/Play";
-import { playerTimeFormatter } from "@/services/playerTimeFormatter";
+import { playerTimeFormatter } from "@/libs/utils";
 import React, { FC, useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 

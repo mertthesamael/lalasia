@@ -11,3 +11,11 @@ export const formatDateToSQLDateTime = (date: Date) : string => {
   
     return sqlDateTime;
 }
+
+export const playerTimeFormatter = (seconds: number) => {
+    let minute = Math.floor(seconds / 60);
+    let second = Math.floor(seconds % 60);
+  
+    return `${minute}:${second}`;
+  };
+  
