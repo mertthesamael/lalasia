@@ -1,8 +1,14 @@
 
+# ⭐ THANK YOU GUYS! ⭐
+
+![star-history-2024524](https://github.com/mertthesamael/lalasia/assets/79616834/0db15c47-f3e3-4088-a9e4-fa13dbb02f81)
+<hr/>
+
+
 ![Image](https://img001.prntscr.com/file/img001/rAc_CdK_TFqIhiQcT7RvFw.png)
 # Lalasia ✨ 
 
-A comprehensive full-stack e-commerce application developed using Next.js 13.4. This application leverages nearly complete server-side rendering (SSR) capabilities and incorporates experimental form actions to enhance its functionality and user experience.
+A comprehensive full-stack e-commerce application developed using Next.js 14. This application leverages nearly complete server-side rendering (SSR) capabilities and incorporates experimental form actions to enhance its functionality and user experience.
 
 Live link: https://lalasia-gray.vercel.app
 
